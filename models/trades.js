@@ -4,14 +4,17 @@ const tradesSchema = new mongoose.Schema({
     sym: String,
     expiryDate: Date,
     spreadType: String,
-    longStrike: String,
-    shortStrike: String,
+    longStrike: Number,
+    shortStrike: Number,
     contractsNumber: Number,
     openPrice: Number,
-    closePrice: Number,
-    closingDate: Date,
-    profit: Number,
-    comments, String
+    openComments: String,
+    closingData: {
+        closePrice: Number,
+        closingDate: Date,
+        profit: Number,
+        closingComments: String
+    }
 })
 
 module.exports = mongoose.model("trades", tradesSchema)
