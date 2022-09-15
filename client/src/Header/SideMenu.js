@@ -8,6 +8,7 @@ import chevron from "../assets/chevron.svg";
 import { months } from "../data/utils";
 
 const Menu = (props) => {
+	const {setMonthToShow} = props
 	const [toggleDropDown, setToggleDropDown] = useState("hide-drop-down");
 	const [checkboxMap, setCheckBoxValue] = useState(
 		months.reduce((acc, elem) => {
@@ -19,8 +20,8 @@ const Menu = (props) => {
 		const enabledMonths = Object.keys(checkboxMap || []).filter(
 			(elem) => checkboxMap[elem]
 		);
-		props.setMonthToShow((prevValue) => [...enabledMonths]);
-	}, [checkboxMap]);
+		setMonthToShow((prevValue) => [...enabledMonths]);
+	}, [checkboxMap, setMonthToShow]);
 
 	const handleChange = () => {
 		props.setToggleMenu("hide-menu");
@@ -66,7 +67,7 @@ const Menu = (props) => {
 							onChange={handleCheckboxChange}
 							className="hideCheckbox"
 						/>
-						<label className="side-nav-month-label" for={month}>
+						<label className="side-nav-month-label" htmlFor={month}>
 							{month}
 							<img
 								src={checkboxMap[month] ? minus : add}

@@ -15,7 +15,7 @@ const config = require("./config")
 const Trade = require('./models/trades');
 
 //Route Imports
-//const tradeRoutes = require('./routes/trade');
+const tradeRoutes = require('./routes/trade');
 const authRoutes = require('./routes/auth');
 //const mainRoutes = require('./routes/main')
 
@@ -28,7 +28,6 @@ const authRoutes = require('./routes/auth');
 mongoose.connect(config.db.connection, {useNewUrlParser: true, useUnifiedTopology: true});
 
 //Express Config
-app.set("view engine", "ejs");
 app.use(express.static('public'));
 app.use(express.json({
 	type: ["application/json", "text/plain"]
@@ -37,12 +36,12 @@ app.use(express.json({
 //Route Config
 //app.use("/", mainRoutes)
 app.use("/", authRoutes)
-//app.use("/", tradeRoutes)
+app.use("/trades", tradeRoutes)
 
 
 //Main Routes
 app.get("/", (req, res) => {
-	res.send("This is the root");
+	res.json({message: "The connection is working!!!"});
 });
 //+++++++++++++++++++++++++++++++++++++
 //Listen

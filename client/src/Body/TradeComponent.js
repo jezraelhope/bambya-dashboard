@@ -6,6 +6,7 @@ const TradeComponent = (props) => {
 	return (
 		<div className="trade-table">
 			<table>
+				<tbody>
 				<tr>
 					<th>Symbol</th>
 					<th>Spread Type</th>
@@ -34,6 +35,7 @@ const TradeComponent = (props) => {
 						</tr>
 					);
 				})}
+				</tbody>
 			</table>
 		</div>
 	);
