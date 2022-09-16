@@ -16,6 +16,7 @@ const Menu = (props) => {
 			return acc;
 		}, {})
 	);
+
 	useEffect(() => {
 		const enabledMonths = Object.keys(checkboxMap || []).filter(
 			(elem) => checkboxMap[elem]
@@ -40,6 +41,8 @@ const Menu = (props) => {
 			setToggleDropDown("hide-drop-down");
 		}
 	};
+
+	
 	return (
 		<section className={props.toggleMenu}>
 			<button className="close-menu-button" onClick={handleChange}>

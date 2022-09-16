@@ -1,22 +1,23 @@
 import "./App.css";
-import "./App.css";
-import React, { useState} from "react";
+import React, { useState, useEffect} from "react";
 import Header from "./Header";
 import Body from "./Body";
 import Footer from "./Footer";
+import { fetchedData } from "./data/utils";
 
-function App() {
+
+
+
+function App(){
 	const [monthToShow, setMonthToShow] = useState([]);
-	// const [data, setData] = useState(null);
+	
+	const [data, setData] = useState([]);
     
-    // useEffect(() => {
-    //     fetch("/trades")
-    //       .then((res) => res.json())
-    //       .then(actualData => setData(actualData))
-    //       .catch((err) => {
-    //         console.log(err)
-    //       })
-    //   }, []);
+    useEffect(async () => {
+        const fetched = await fetchedData()
+		setData(fetched);
+      }, [setData]);
+
 	  
 	return (
 		<div className="App">
