@@ -13,7 +13,9 @@ const AddTradeForm = () => {
 
 
     const handleSubmit = e => {
+
         e.preventDefault();
+
         const formData = {
             expiryDate,
             symbol,
@@ -24,6 +26,7 @@ const AddTradeForm = () => {
             openPrice,
             openComments
         }
+
         fetch('/trades', {
             method: "POST",
             headers: { "Content-Type": "application/json"},
@@ -31,6 +34,8 @@ const AddTradeForm = () => {
         }).then(() => {
             console.log("new data added", formData)
         })
+        
+        e.target.reset();
     }
     
     return(
