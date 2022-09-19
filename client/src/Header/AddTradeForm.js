@@ -4,7 +4,7 @@ const AddTradeForm = () => {
 
     const [expiryDate, setExpiryDate] = useState(new Date())
     const [symbol, setSymbol] = useState('')
-    const [contracts, setContactsNumber] = useState(0)
+    const [contractsNumber, setContractsNumber] = useState(0)
     const [spreadType, setSpreadType] = useState('Bull Call')
     const [longStrike, setLongStrike] = useState(0)
     const [shortStrike, setShortStrike] = useState(0)
@@ -19,7 +19,7 @@ const AddTradeForm = () => {
         const formData = {
             expiryDate,
             symbol,
-            contracts,
+            contractsNumber,
             spreadType,
             longStrike,
             shortStrike,
@@ -34,7 +34,7 @@ const AddTradeForm = () => {
         }).then(() => {
             console.log("new data added", formData)
         })
-        
+
         e.target.reset();
     }
     
@@ -62,7 +62,7 @@ const AddTradeForm = () => {
                 <input
                     type="number"
                     name="contractsNumber"
-                    onChange={e => setContactsNumber(e.target.value)}
+                    onChange={e => setContractsNumber(e.target.value)}
                 />
             </div>
             <div className="form-group">

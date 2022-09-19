@@ -8,7 +8,7 @@ import chevron from "../assets/chevron.svg";
 import { months } from "../data/utils";
 
 const Menu = (props) => {
-	const {setMonthToShow} = props
+	const setMonthToShow = props.setMonthToShow;
 	const [toggleDropDown, setToggleDropDown] = useState("hide-drop-down");
 	const [checkboxMap, setCheckBoxValue] = useState(
 		months.reduce((acc, elem) => {
@@ -43,22 +43,28 @@ const Menu = (props) => {
 	};
 
 	
+
+
 	return (
 		<section className={props.toggleMenu}>
 			<button className="close-menu-button" onClick={handleChange}>
 				<img src={cancel} alt="cancel-button" />
 			</button>
-			<button className="toggle-year" onClick={toggleYear}>
-				<h2>2022</h2>
-				<img
-					className={`icon ${toggleDropDown}`}
-					src={chevron}
-					alt="chevron"
-				/>
-			</button>
+			{Object.keys(props.data).map(year => {
+				return(
+				<button className="toggle-year" onClick={toggleYear}>
+					<h2 key={year}>{year}</h2>
+					<img
+						className={`icon ${toggleDropDown}`}
+						src={chevron}
+						alt="chevron"
+					/>
+				</button>
+				)
+			})}
 			{months.map((month) => {
 				return (
-					<div
+					<div key={month}
 						className={`side-nav-months-container ${toggleDropDown}`}
 					>
 						<input
