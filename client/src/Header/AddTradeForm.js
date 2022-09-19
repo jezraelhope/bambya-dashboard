@@ -2,55 +2,105 @@ import React, {useState} from "react";
 
 const AddTradeForm = () => {
 
-    const [formData, setFormData] = useState({})
+    const [expiryDate, setExpiryDate] = useState(new Date())
+    const [symbol, setSymbol] = useState('')
+    const [contracts, setContactsNumber] = useState(0)
+    const [spreadType, setSpreadType] = useState('Bull Call')
+    const [longStrike, setLongStrike] = useState(0)
+    const [shortStrike, setShortStrike] = useState(0)
+    const [openPrice, setOpenPrice] = useState(0)
+    const [openComments, setOpenComments] = useState("")
+
 
     const handleSubmit = e => {
-
-        setFormData({
-            //symbol: e.target.elements.symbol.value,
-            [e.target.name]: e.target.value
-        })
-        
         e.preventDefault();
+        const formData = {
+            expiryDate,
+            symbol,
+            contracts,
+            spreadType,
+            longStrike,
+            shortStrike,
+            openPrice,
+            openComments
+        }
+        fetch('/trades', {
+            method: "POST",
+            headers: { "Content-Type": "application/json"},
+            body: JSON.stringify(formData)
+        }).then(() => {
+            console.log("new data added", formData)
+        })
     }
-
-
+    
     return(
-        <form action="/trades" method="post" encType="text/json" className="add-trade-form">
+        <form className="add-trade-form" onSubmit={handleSubmit}>
             <h2>Add Trade</h2>
             <div className="form-group">
                 <label htmlFor="expiryDate">Expiry Date</label>
-                <input onChange={handleSubmit} type="date" name="expiryDate"/>
+                <input
+                    type="date"
+                    name="expiryDate"
+                    onChange={e => setExpiryDate(e.target.value)}
+                />
             </div>
             <div className="form-group">
                 <label htmlFor="symbol">Ticker Symbol</label>
-                <input onChange={handleSubmit}type="text" name="symbol"/>
+                <input 
+                    type="text"
+                    name="symbol"
+                    onChange={e => setSymbol(e.target.value)}
+                />
             </div>
             <div className="form-group">
                 <label htmlFor="numberContracts">Number of Contracts</label>
-                <input onChange={handleSubmit} type="number" name="numberContracts"/>
+                <input
+                    type="number"
+                    name="contractsNumber"
+                    onChange={e => setContactsNumber(e.target.value)}
+                />
             </div>
             <div className="form-group">
                 <label htmlFor="spreadType">Spread Type</label>
-                <input onChange={handleSubmit} type="text" name="spreadType"/>
+                <input
+                    type="text"
+                    name="spreadType"
+                    onChange={e => setSpreadType(e.target.value)}
+                />
             </div>
             <div className="form-group">
                 <label htmlFor="longStrike">Long Strike</label>
-                <input onChange={handleSubmit} type="number" name="expiry-date"/>
+                <input
+                    type="number"
+                    name="expiry-date"
+                    onChange={e => setLongStrike(e.target.value)}
+                />
             </div>
             <div className="form-group">
                 <label htmlFor="shortStrike">Short Strike</label>
-                <input onChange={handleSubmit} type="number" name="shortStrike"/>
+                <input
+                    type="number"
+                    name="shortStrike"
+                    onChange={e => setShortStrike(e.target.value)}
+                />
             </div>
             <div className="form-group">
                 <label htmlFor="openPrice">Open Price</label>
-                <input onChange={handleSubmit} type="number" name="openPrice"/>
+                <input
+                    type="number"
+                    name="openPrice"
+                    onChange={e => setOpenPrice(e.target.value)}
+                />
             </div>
             <div className="form-group">
                 <label htmlFor="openComments">Open Comments</label>
-                <input onChange={handleSubmit} type="text" name="openComments"/>
+                <input
+                    type="text"
+                    name="openComments"
+                    onChange={e => setOpenComments(e.target.value)}
+                />
             </div>
-            <button type="submit">Apply</button>
+            <button>Apply</button>
         </form>
     )
 }
