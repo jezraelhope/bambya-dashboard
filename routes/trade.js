@@ -6,17 +6,41 @@ const Trade = require('../models/trades');
 router.get("/", async (req, res) => {
     try{
         const trades = await Trade.find().exec();
+        const refactoredTrades = trades.reduce((acc, trade) => {
+            const d = new Date(trade.expiryDate)
+            let year = null;
+            let month = null;
+            let day= null;
 
-        const d = new Date(trades[0].expiryDate)
-
-        if(!!d.valueOf) {
-            year = d.getFullYear();
-            month = d.getMonth()+1;
-            day = d.getDate()+1;
-            console.log(year)
-        }
+            if(!!d.valueOf) {
+                year =  d.getFullYear();
+                month = d.getMonth()+1;
+                day = d.getDate()+1;
+            }    
+            
+            if(!acc[year]) {
+                acc[year] = {};
+            }
+            if(!acc[year][month]) {
+                acc[year][month] = {};
+            }
+            if(!acc[year][month][day]) {
+                acc[year][month][day] = [];
+            }
+            acc[year][month][day].push({
+                symbol: trade.sym,
+                contractsNumber: trade.contractsNumber,
+                spreadType: trade.spreadType,
+                longStrike: trade.longStrike,
+                shortStrike: trade.shortStrike,
+                openPrice: trade.openPrice,
+                comments: trade.openComments,
+            })
+            return acc
+        }, {})
         
-        res.send({trades})
+
+        res.send(refactoredTrades)
     } catch (err) {
         console.log(err)
     }
