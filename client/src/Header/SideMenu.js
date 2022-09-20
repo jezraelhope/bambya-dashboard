@@ -6,9 +6,13 @@ import add from "../assets/add.svg";
 import minus from "../assets/minus.svg";
 import chevron from "../assets/chevron.svg";
 import { months } from "../data/utils";
+import { monthWords } from "../data/utils";
 
 const Menu = (props) => {
+	const data = props.data;
+	// const months = props.months;	
 	const setMonthToShow = props.setMonthToShow;
+
 	const [toggleDropDown, setToggleDropDown] = useState("hide-drop-down");
 	const [checkboxMap, setCheckBoxValue] = useState(
 		months.reduce((acc, elem) => {
@@ -42,50 +46,50 @@ const Menu = (props) => {
 		}
 	};
 
-	
-
-
 	return (
 		<section className={props.toggleMenu}>
 			<button className="close-menu-button" onClick={handleChange}>
 				<img src={cancel} alt="cancel-button" />
 			</button>
-			{Object.keys(props.data).map(year => {
+			{Object.keys(data).map(year => {
 				return(
-				<button className="toggle-year" onClick={toggleYear}>
-					<h2 key={year}>{year}</h2>
-					<img
-						className={`icon ${toggleDropDown}`}
-						src={chevron}
-						alt="chevron"
-					/>
-				</button>
-				)
-			})}
-			{months.map((month) => {
-				return (
-					<div key={month}
-						className={`side-nav-months-container ${toggleDropDown}`}
-					>
-						<input
-							type="checkbox"
-							id={month}
-							name={month}
-							value={month}
-							checked={checkboxMap[month]}
-							onChange={handleCheckboxChange}
-							className="hideCheckbox"
-						/>
-						<label className="side-nav-month-label" htmlFor={month}>
-							{month}
+					<div key={year}>
+						<button className="toggle-year" onClick={toggleYear}>
+							<h2>{year}</h2>
 							<img
-								src={checkboxMap[month] ? minus : add}
-								alt="toggle-month"
-								className="add-month-icon"
+								className={`icon ${toggleDropDown}`}
+								src={chevron}
+								alt="chevron"
 							/>
-						</label>
+						</button>
+						{Object.keys(data[year]).map((month) => {
+							month = monthWords[month]
+							return (
+								<div key={month}
+									className={`side-nav-months-container ${toggleDropDown}`}
+								>
+									<input
+										type="checkbox"
+										id={month}
+										name={month}
+										value={month}
+										checked={checkboxMap[month]}
+										onChange={handleCheckboxChange}
+										className="hideCheckbox"
+									/>
+									<label className="side-nav-month-label" htmlFor={month}>
+										{month}
+										<img
+											src={checkboxMap[month] ? minus : add}
+											alt="toggle-month"
+											className="add-month-icon"
+										/>
+									</label>
+								</div>
+							);
+						})}
 					</div>
-				);
+				)
 			})}
 		</section>
 	);

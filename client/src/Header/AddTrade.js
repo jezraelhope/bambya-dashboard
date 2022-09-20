@@ -5,8 +5,9 @@ import AddTradeForm from './AddTradeForm'
 const AddTrade = () => {
 	return (
 		<div className="add-trade-container">
-			<img src={addTrade} alt="add-trade-icon" className="icon" />
-			<AddTradeForm />
+			<button className="open-menu-button">
+				<img src={addTrade} alt="add-trade-icon" className="icon" />
+			</button>
 		</div>
 	);
 };

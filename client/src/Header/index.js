@@ -5,6 +5,7 @@ import Hamburger from "./Hamburger";
 import Title from "./Title";
 import AddTrade from "./AddTrade";
 import SideMenu from "./SideMenu";
+import AddTradeForm from "./AddTradeForm";
 
 const Header = (props) => {
 	const setMonthToShow = props.setMonthToShow
@@ -23,6 +24,7 @@ const Header = (props) => {
 			/>
 			<Title />
 			<AddTrade />
+			<AddTradeForm />
 		</header>
 	);
 };
