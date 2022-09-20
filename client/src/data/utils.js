@@ -2,7 +2,7 @@ import newSampleData from "./newSampleData";
 
 export const calculateCurrentMonthAndYear = (data) => {
     const year = Object.keys(data)
-    console.log(year)
+    return year;
 }
 
 

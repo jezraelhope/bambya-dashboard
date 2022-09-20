@@ -10,16 +10,19 @@ import { monthWords } from "../data/utils";
 
 const Menu = (props) => {
 	const data = props.data;
-	// const months = props.months;	
 	const setMonthToShow = props.setMonthToShow;
+	const years = Object.keys(data);
 
 	const [toggleDropDown, setToggleDropDown] = useState("hide-drop-down");
+
 	const [checkboxMap, setCheckBoxValue] = useState(
 		months.reduce((acc, elem) => {
 			acc[elem] = false;
 			return acc;
 		}, {})
 	);
+
+	console.log(checkboxMap)
 
 	useEffect(() => {
 		const enabledMonths = Object.keys(checkboxMap || []).filter(
@@ -51,7 +54,7 @@ const Menu = (props) => {
 			<button className="close-menu-button" onClick={handleChange}>
 				<img src={cancel} alt="cancel-button" />
 			</button>
-			{Object.keys(data).map(year => {
+			{years.map(year => {
 				return(
 					<div key={year}>
 						<button className="toggle-year" onClick={toggleYear}>
@@ -64,8 +67,10 @@ const Menu = (props) => {
 						</button>
 						{Object.keys(data[year]).map((month) => {
 							month = monthWords[month]
+
 							return (
-								<div key={month}
+								<div
+									key={month}
 									className={`side-nav-months-container ${toggleDropDown}`}
 								>
 									<input
