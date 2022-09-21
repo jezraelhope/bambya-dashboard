@@ -9,36 +9,48 @@ import { months } from "../data/utils";
 import { monthWords } from "../data/utils";
 
 const Menu = (props) => {
+	
+	//constants
 	const data = props.data;
+	const years = props.years
 	const setMonthToShow = props.setMonthToShow;
-	const years = Object.keys(data);
+	const setYearToShow = props.setYearToShow
 
+	//states
 	const [toggleDropDown, setToggleDropDown] = useState("hide-drop-down");
-
-	const [checkboxMap, setCheckBoxValue] = useState(
+	const [monthsMap, setMonthsMap] = useState(
 		months.reduce((acc, elem) => {
 			acc[elem] = false;
 			return acc;
 		}, {})
 	);
+	const [yearsMap, setYearsMap] = useState(
+		years.reduce((acc, elem) => {
+			acc[elem] = false;
+			return acc;
+		}, {})
+	);
 
-	console.log(checkboxMap)
-
+	//builder functions
 	useEffect(() => {
-		const enabledMonths = Object.keys(checkboxMap || []).filter(
-			(elem) => checkboxMap[elem]
+		const enabledMonths = Object.keys(monthsMap || []).filter(
+			(elem) => monthsMap[elem]
+		);
+		const enabledYears = Object.keys(yearsMap || []).filter(
+			(elem) => yearsMap[elem]
 		);
 		setMonthToShow((prevValue) => [...enabledMonths]);
-	}, [checkboxMap, setMonthToShow]);
+		setYearToShow((prevValue) => [...enabledMonths]);
+	}, [monthsMap, setMonthToShow, yearsMap, setYearToShow]);
 
 	const handleChange = () => {
 		props.setToggleMenu("hide-menu");
 	};
 
 	const handleCheckboxChange = (e) => {
-		setCheckBoxValue((prevValue) => ({
+		setMonthsMap((prevValue) => ({
 			...prevValue,
-			[e.target.id]: !checkboxMap[e.target.id],
+			[e.target.id]: !monthsMap[e.target.id],
 		}));
 	};
 	const toggleYear = () => {
@@ -66,26 +78,26 @@ const Menu = (props) => {
 							/>
 						</button>
 						{Object.keys(data[year]).map((month) => {
-							month = monthWords[month]
+							const monthWord = monthWords[month]
 
 							return (
 								<div
-									key={month}
+									key={monthWord}
 									className={`side-nav-months-container ${toggleDropDown}`}
 								>
 									<input
 										type="checkbox"
 										id={month}
-										name={month}
+										name={monthWord}
 										value={month}
-										checked={checkboxMap[month]}
+										checked={month}
 										onChange={handleCheckboxChange}
 										className="hideCheckbox"
 									/>
 									<label className="side-nav-month-label" htmlFor={month}>
-										{month}
+										{monthWord}
 										<img
-											src={checkboxMap[month] ? minus : add}
+											src={monthWord ? minus : add}
 											alt="toggle-month"
 											className="add-month-icon"
 										/>

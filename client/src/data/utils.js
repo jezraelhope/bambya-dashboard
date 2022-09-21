@@ -1,17 +1,11 @@
 import newSampleData from "./newSampleData";
 
-export const calculateCurrentMonthAndYear = (data) => {
-    const year = Object.keys(data)
-    return year;
-}
-
-
 export const months = Object.keys(newSampleData);
 
 export const monthWords = {
     1: "January",
     2: "February",
-    3:" March",
+    3: "March",
     4: "April",
     5: "May",
     6: "June",

@@ -1,6 +1,5 @@
 import React from "react";
 import addTrade from "../assets/add.svg";
-import AddTradeForm from './AddTradeForm'
 
 const AddTrade = () => {
 	return (

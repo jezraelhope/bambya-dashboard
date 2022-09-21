@@ -17,10 +17,12 @@ const Header = (props) => {
 				setToggleMenu={setToggleMenu}
 			/>
 			<SideMenu
+				data={props.data}
+				years={props.years}
+				setMonthToShow={setMonthToShow}
+				setYearToShow={props.setYearToShow}
 				toggleMenu={toggleMenu}
 				setToggleMenu={setToggleMenu}
-				setMonthToShow={setMonthToShow}
-				data = {props.data}
 			/>
 			<Title />
 			<AddTrade />
