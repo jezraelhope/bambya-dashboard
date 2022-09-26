@@ -10,7 +10,7 @@ router.get('/signup', (req,res) => {
 
 
 //Sign Up - Create
-router.post('/kj', async (req, res) => {
+router.post('/signup', async (req, res) => {
     try{
         const newUser = await User.register(new User({
             email: req.body.email,

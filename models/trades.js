@@ -9,6 +9,13 @@ const tradesSchema = new mongoose.Schema({
     contractsNumber: Number,
     openPrice: Number,
     openComments: String,
+    owner: {
+        id: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "User"
+        },
+        username: String
+    },
     closingData: {
         closePrice: Number,
         closingDate: Date,

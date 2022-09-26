@@ -5,14 +5,17 @@
 //NPM Imports
 const express = require('express');
 const app = express();
-const mongoose = require('mongoose')
-const router = express.Router();
+const mongoose = require('mongoose');
+const passport = require('passport');
+const LocalStrategy = require('passport-local').Strategy;
+const expressSession = require('express-session');
 
 //Config Import
-const config = require("./config")
+const config = require("./config");
 
 //Model Imports
 const Trade = require('./models/trades');
+const User = require('./models/user')
 
 //Route Imports
 const tradeRoutes = require('./routes/trade');
@@ -32,6 +35,21 @@ app.use(express.static('public'));
 app.use(express.json({
 	type: ["application/json", "text/plain"]
 }))
+
+//Express Session Config
+
+app.use(expressSession({
+	secret: "jdshfjdhldmfsdjfksdhjfkdssdfksdj sdofjp[ioie -394r sdfy989y3q dfh8ye",
+	resave: false,
+	saveUninitialized: false
+}))
+
+//Passport config
+app.use(passport.initialize());
+app.use(passport.session());
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
+passport.use(new LocalStrategy(User.authenticate()));
 
 //Route Config
 //app.use("/", mainRoutes)
