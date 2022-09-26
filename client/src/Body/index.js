@@ -2,7 +2,12 @@ import React from "react";
 import MonthlyComponent from "./MonthlyComponent";
 import "./styles/body.css";
 
-const Body = ({ monthToShow }) => {
+const Body = (props) => {
+
+	const monthToShow = props.monthToShow;
+	const data = props.data;
+	const years = props.years;
+
 	return (
 		<main className="main-container">
 			{(monthToShow || []).length

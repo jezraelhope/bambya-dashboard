@@ -11,7 +11,7 @@ import "./App.css";
 function App(){
 	const [monthToShow, setMonthToShow] = useState([]);
 	const [data, setData] = useState([]);
-	const [yearsToShow, setYearToShow] = useState([]);
+	const [yearSelected, setYearSelected] = useState('2021');
 	const [years, setYears] = useState([])
 	
 	const fetchedData = async () => {
@@ -35,13 +35,15 @@ function App(){
 			<Header
 				data={data}
 				setMonthToShow={setMonthToShow}
-				setYearToShow={setYearToShow}
+				setYearSelected={setYearSelected}
+				yearSelected={yearSelected}
 				years={years}
 			/>
 			<Body
-				yearsToShow={years}
+				yearSelected={yearSelected}
 				monthToShow={monthToShow}
 				data={data}
+				years={years}
 			/>
 			<Footer />
 		</div>
