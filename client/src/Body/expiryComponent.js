@@ -3,6 +3,8 @@ import TradeComponent from "./TradeComponent";
 import newSampleData from "../data/newSampleData";
 
 const ExpiryComponent = (props) => {
+	// const data = props.data
+
 	const expiry = Object.keys(newSampleData[props.month]);
 	return expiry.map((date) => {
 		return (

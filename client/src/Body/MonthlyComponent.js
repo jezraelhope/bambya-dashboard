@@ -1,5 +1,5 @@
 import React from "react";
-import ExpiryComponent from "./expiryComponent";
+import ExpiryComponent from "./ExpiryComponent";
 
 const MonthlyComponent = (props) => {
 	return (

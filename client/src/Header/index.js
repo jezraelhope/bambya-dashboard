@@ -20,13 +20,14 @@ const Header = (props) => {
 				data={props.data}
 				years={props.years}
 				setMonthToShow={setMonthToShow}
-				setYearToShow={props.setYearToShow}
+				setYearSelected={props.setYearSelected}
+				yearSelected={props.yearSelected}
 				toggleMenu={toggleMenu}
 				setToggleMenu={setToggleMenu}
 			/>
 			<Title />
 			<AddTrade />
-			<AddTradeForm />
+			{/* <AddTradeForm /> */}
 		</header>
 	);
 };
