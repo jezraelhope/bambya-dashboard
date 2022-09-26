@@ -39,31 +39,55 @@
 	display: none;
 }
 
-.toggle-year {
-	width: 100%;
-	background: transparent;
-	padding: 0 2rem;
-	border:none;
-	cursor: pointer;
-	outline: inherit;
+.years-tab {
+	list-style-type: none;
 	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	border-bottom: 1px solid;
+	flex-direction: row;
+	margin: 0 auto;
+	padding: 0 1em;
 }
 
-.toggle-year .icon.hide-drop-down {
-		width: 10px;
-		margin-left: 10px;
-		transform: rotate(270deg);
-		display: block;
+.year-item {
+	width: 20%;
+	border: 1px solid white;
+	margin: 0 .1em;
 }
-.toggle-year .icon.show-drop-down {
-	width: 10px;
-	margin-left: 10px;
-	transform: rotate(0deg);
-	display: block;
+
+.year-item:active {
+	background-color: white;
 }
+
+.year-item a {
+	color: white;
+	text-decoration: none;
+
+}
+
+.year-item a:focus {
+	color: grey;
+}
+
+.year-item button {
+	margin: 0 .5em;
+	background: none;
+	color: black;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+}
+
+
+/* months container */
+.months-not-shown {
+	display: none;
+}
+
+.months-shown {
+	display: inline-block;
+}
+
 .side-nav-months-container {
 	padding: 20px;
 }
@@ -74,14 +98,14 @@
     cursor: pointer;
 	display: flex;
 }
-.hideCheckbox {
+.hide-checkbox {
 	display: none
 }
 .show-drop-down {
 	display: flex;
 	flex-direction: row;
 	width: 20%;
-	margin-left: 3rem;
+	margin-left: 1rem;
 }
 
 .hide-drop-down {
