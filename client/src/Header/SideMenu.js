@@ -49,6 +49,7 @@ const Menu = (props) => {
 			<SideMenuMonths
 				data={data}
 				showMonths={showMonths}
+				monthToShow={props.monthToShow}
 				setShowMonths={setShowMonths}
 				yearSelected={yearSelected}
 				setMonthToShow={setMonthToShow}

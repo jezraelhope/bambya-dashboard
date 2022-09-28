@@ -19,6 +19,7 @@ const Header = (props) => {
 			<SideMenu
 				data={props.data}
 				years={props.years}
+				monthToShow={props.monthToShow}
 				setMonthToShow={setMonthToShow}
 				setYearSelected={props.setYearSelected}
 				yearSelected={props.yearSelected}
