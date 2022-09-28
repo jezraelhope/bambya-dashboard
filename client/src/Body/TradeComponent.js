@@ -27,7 +27,7 @@ const TradeComponent = (props) => {
 							<td>{trade.spreadType}</td>
 							<td>{trade.longStrike}</td>
 							<td>{trade.shortStrike}</td>
-							<td>{trade.contractCount}</td>
+							<td>{trade.contractsNumber}</td>
 							<td>{trade.openPrice}</td>
 							<td>{trade.closePrice}</td>
 							<td>data to be fetched</td>

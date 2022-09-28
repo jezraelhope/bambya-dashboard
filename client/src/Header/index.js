@@ -28,7 +28,7 @@ const Header = (props) => {
 			/>
 			<Title />
 			<AddTrade />
-			{/* <AddTradeForm /> */}
+			<AddTradeForm />
 		</header>
 	);
 };
