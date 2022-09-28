@@ -34,6 +34,7 @@ function App(){
 		<div className="App">
 			<Header
 				data={data}
+				monthToShow={monthToShow}
 				setMonthToShow={setMonthToShow}
 				setYearSelected={setYearSelected}
 				yearSelected={yearSelected}

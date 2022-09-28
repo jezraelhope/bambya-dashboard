@@ -6,7 +6,7 @@ const Body = (props) => {
 
 	const monthToShow = props.monthToShow;
 	const data = props.data;
-	const years = props.years;
+	const yearSelected = props.yearSelected;
 
 	return (
 		<main className="main-container">
@@ -17,7 +17,11 @@ const Body = (props) => {
 				return (
 					<div className="monthly-container">
 						<h2 key={month}>{month}</h2>
-						<MonthlyComponent month={month} />
+						<MonthlyComponent
+							month={month}
+							year={yearSelected}
+							data={data}
+						/>
 					</div>
 				);
 			})}

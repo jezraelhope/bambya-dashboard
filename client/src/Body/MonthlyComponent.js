@@ -5,7 +5,11 @@ const MonthlyComponent = (props) => {
 	return (
 		<div className="monthly">
 			<div>Total Profit</div>
-			<ExpiryComponent month={props.month} />
+			<ExpiryComponent
+				month={props.month}
+				year={props.year}
+				data={props.data}
+			/>
 		</div>
 	);
 };

@@ -2,7 +2,8 @@ import React from "react";
 import newSampleData from "../data/newSampleData";
 
 const TradeComponent = (props) => {
-	const trades = newSampleData[props.month][props.date];
+	const data = props.data
+	const trades = data[props.month][props.date];
 	return (
 		<div className="trade-table">
 			<table>
