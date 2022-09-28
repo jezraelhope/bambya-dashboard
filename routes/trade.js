@@ -2,6 +2,21 @@ const express = require('express');
 const router = express.Router();
 const Trade = require('../models/trades');
 
+const monthWords = {
+    1: "January",
+    2: "February",
+    3: "March",
+    4: "April",
+    5: "May",
+    6: "June",
+    7: "July",
+    8: "August",
+    9: "September",
+    10: "October",
+    11: "November",
+    12: "December"
+}
+
 //Index
 router.get("/", async (req, res) => {
     try{
@@ -21,13 +36,13 @@ router.get("/", async (req, res) => {
             if(!acc[year]) {
                 acc[year] = {};
             }
-            if(!acc[year][month]) {
-                acc[year][month] = {};
+            if(!acc[year][monthWords[month]]) {
+                acc[year][monthWords[month]] = {};
             }
-            if(!acc[year][month][day]) {
-                acc[year][month][day] = [];
+            if(!acc[year][monthWords[month]][day]) {
+                acc[year][monthWords[month]][day] = [];
             }
-            acc[year][month][day].push({
+            acc[year][monthWords[month]][day].push({
                 symbol: trade.sym,
                 contractsNumber: trade.contractsNumber,
                 spreadType: trade.spreadType,
