@@ -11,20 +11,6 @@ const SideMenuMonths = (props) => {
     const setMonthToShow = props.setMonthToShow;
     const months = Object.keys(data[yearSelected] || {})
 
-    // const handleCheckboxChange = (e) => {
-    //     let monthCheck = [];
-
-    //     if(e.target.checked === true && !monthToShow.includes(e.target.value)) {
-    //         monthCheck.push(e.target.value)
-
-    //     } else if() {
-
-    //     }
-
-    //     setMonthToShow(monthCheck)
-        
-    // }
-
     const [monthsMap, setMonthsMap] = useState(
         months.reduce((acc, elem) => {
             acc[elem] = false;
@@ -64,10 +50,10 @@ const SideMenuMonths = (props) => {
                         <label className="side-nav-month-label" htmlFor={month}>
                             {month}
                             <img
-                                src={month ? add : minus}
+                                src={monthToShow.includes(month) ? minus : add}
                                 alt="toggle-month"
                                 className="add-month-icon"
-                            />
+                                />
                         </label>
                     </div>
                 );
