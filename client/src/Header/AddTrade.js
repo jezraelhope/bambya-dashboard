@@ -1,10 +1,13 @@
 import React from "react";
 import addTrade from "../assets/add.svg";
 
-const AddTrade = () => {
+const AddTrade = (props) => {
+	const handleChange = () => {
+		props.setToggleAddTrade("show-form");
+	};
 	return (
-		<div className="add-trade-container">
-			<button className="open-menu-button">
+		<div className="add-trade">
+			<button className="open-menu-button" onClick={handleChange}>
 				<img src={addTrade} alt="add-trade-icon" className="icon" />
 			</button>
 		</div>

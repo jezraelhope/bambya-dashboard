@@ -15,6 +15,10 @@
 	outline: inherit;
 }
 
+.hide {
+	display: none;
+}
+
 .close-menu-button {
 	width:25px;
 	background: none;
@@ -26,7 +30,7 @@
 	margin: 1rem;
 }
 
-.show-menu {
+.show {
 	display: flex;
 	flex-direction: column;
 	position: absolute;
@@ -35,9 +39,9 @@
 	height: 80vh;
 }
 
-.hide-menu {
-	display: none;
-}
+
+
+/* Side menu years */
 
 .years-tab {
 	list-style-type: none;
@@ -77,7 +81,6 @@
 	cursor: pointer;
 	outline: inherit;
 }
-
 
 /* months container */
 .months-not-shown {
@@ -121,4 +124,55 @@
 	cursor: pointer;
 	color: inherit;
 	outline: inherit;
+}
+
+/* Add Trade Form */
+
+.close-form-button {
+	width:25px;
+	background: none;
+	padding: 0;
+	border:none;
+	cursor: pointer;
+	color: inherit;
+	outline: inherit;
+	margin: 1rem;
+}
+
+.show-form {
+	display: flex;
+	flex-direction: column;
+	position: absolute;
+	right: 20px;
+	width: 20em;
+	background-color: #C4C4C4;
+	color: black;
+	height: 80vh;
+	padding: 1em;
+}
+
+.button-container {
+	width: 100%;
+	display: flex;
+	flex-direction: row-reverse;
+}
+
+.add-trade-form-container {
+	display: flex;
+	flex-direction: column;
+}
+
+.form-group {
+	margin: .5em 0;
+	display: grid;
+}
+
+.form-group label{
+	margin-bottom: .5em;
+}
+
+.form-button {
+	margin-top: 1em;
+	width: 25%;
+	height: 25px;
 }

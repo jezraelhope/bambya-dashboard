@@ -8,8 +8,10 @@ import SideMenu from "./SideMenu";
 import AddTradeForm from "./AddTradeForm";
 
 const Header = (props) => {
-	const setMonthToShow = props.setMonthToShow
-	const [toggleMenu, setToggleMenu] = useState("hide-menu");
+	const setMonthToShow = props.setMonthToShow;
+	const [toggleMenu, setToggleMenu] = useState("hide");
+	const [toggleAddTrade, setToggleAddTrade] = useState("hide")
+
 	return (
 		<header className="header-container">
 			<Hamburger
@@ -27,8 +29,14 @@ const Header = (props) => {
 				setToggleMenu={setToggleMenu}
 			/>
 			<Title />
-			<AddTrade />
-			<AddTradeForm />
+			<AddTrade
+				toggleAddTrade={toggleAddTrade}
+				setToggleAddTrade={setToggleAddTrade}
+			/>
+			<AddTradeForm
+				setToggleAddTrade={setToggleAddTrade}
+				toggleAddTrade={toggleAddTrade}
+			/>
 		</header>
 	);
 };

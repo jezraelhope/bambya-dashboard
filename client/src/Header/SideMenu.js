@@ -20,7 +20,7 @@ const Menu = (props) => {
 	
 	//builder functions
 	const handleChange = () => {
-		props.setToggleMenu("hide-menu");
+		props.setToggleMenu("hide");
 	};
 
 	const handleYearChange = (e) => {
