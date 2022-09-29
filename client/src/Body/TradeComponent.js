@@ -4,6 +4,7 @@ import newSampleData from "../data/newSampleData";
 const TradeComponent = (props) => {
 	const data = props.data
 	const trades = data[props.month][props.date];
+
 	return (
 		<div className="trade-table">
 			<table>
@@ -22,7 +23,7 @@ const TradeComponent = (props) => {
 				</tr>
 				{trades.map((trade) => {
 					return (
-						<tr>
+						<tr key={trade.symbol}>
 							<td>{trade.symbol}</td>
 							<td>{trade.spreadType}</td>
 							<td>{trade.longStrike}</td>

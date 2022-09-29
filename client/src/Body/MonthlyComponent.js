@@ -4,7 +4,7 @@ import ExpiryComponent from "./ExpiryComponent";
 const MonthlyComponent = (props) => {
 	return (
 		<div className="monthly">
-			<div>Total Profit</div>
+			<h3>Total Profit</h3>
 			<ExpiryComponent
 				month={props.month}
 				year={props.year}

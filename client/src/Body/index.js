@@ -15,8 +15,8 @@ const Body = (props) => {
 				: "Please choose the month from the side menu to filter"}
 			{monthToShow.map((month) => {
 				return (
-					<div className="monthly-container">
-						<h2 key={month}>{month}</h2>
+					<div className="monthly-container" key={month}>
+						<h2>{month}</h2>
 						<MonthlyComponent
 							month={month}
 							year={yearSelected}
