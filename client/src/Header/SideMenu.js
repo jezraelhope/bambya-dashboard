@@ -30,10 +30,12 @@ const Menu = (props) => {
 
 	return (
 		<section className={props.toggleMenu}>
-			<button className="close-menu-button" onClick={handleChange}>
-				<img src={cancel} alt="cancel-button" />
-			</button>
-			<nav>
+			<div className="sidemenu-button-container">
+				<button className="close-menu-button" onClick={handleChange}>
+					<img src={cancel} alt="cancel-button" />
+				</button>
+			</div>
+			<nav className="year-nav">
 				<ul className="years-tab">
 					{years.map(year => {
 						return(

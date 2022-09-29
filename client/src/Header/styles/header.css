@@ -19,6 +19,10 @@
 	display: none;
 }
 
+.sidemenu-button-container {
+	width: 100%;
+}
+
 .close-menu-button {
 	width:25px;
 	background: none;
@@ -27,7 +31,6 @@
 	cursor: pointer;
 	color: inherit;
 	outline: inherit;
-	margin: 1rem;
 }
 
 .show {
@@ -37,18 +40,23 @@
 	width: 20em;
 	background-color: #C4C4C4;
 	height: 80vh;
+	padding: 1em;
 }
 
 
 
 /* Side menu years */
 
+.year-nav {
+	margin-top: 1em;
+	border-bottom: 1px solid black;
+}
+
 .years-tab {
 	list-style-type: none;
 	display: flex;
 	flex-direction: row;
-	margin: 0 auto;
-	padding: 0 1em;
+	padding: 0;
 }
 
 .year-item {
@@ -81,6 +89,7 @@
 	cursor: pointer;
 	outline: inherit;
 }
+
 
 /* months container */
 .months-not-shown {
@@ -136,7 +145,7 @@
 	cursor: pointer;
 	color: inherit;
 	outline: inherit;
-	margin: 1rem;
+	margin-right: .7rem;
 }
 
 .show-form {
