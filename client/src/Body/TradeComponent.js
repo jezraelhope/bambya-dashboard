@@ -31,7 +31,7 @@ const TradeComponent = (props) => {
 							<td>{trade.openPrice}</td>
 							<td>{trade.closePrice}</td>
 							<td>data to be fetched</td>
-							<td>{trade.closePrice - trade.openPrice}</td>
+							<td>{trade.closePrice ? trade.closePrice - trade.openPrice : "Not available"}</td>
 							<td>{trade.comments}</td>
 						</tr>
 					);
