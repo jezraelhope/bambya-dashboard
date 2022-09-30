@@ -88,3 +88,7 @@ td {
 	text-decoration: none;
 	margin-bottom: .5em;
 }
+
+.close-window {
+	cursor: pointer;
+}

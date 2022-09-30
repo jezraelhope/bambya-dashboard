@@ -21,7 +21,7 @@ const Modal = () => {
                     <a href="#">Edit</a>
                     <a href="#">Close</a>
                     <a href="#">Delete</a>
-                    <button onClick={toggleModal}>close modal</button>
+                    <button className="close-window" onClick={toggleModal}>close window</button>
                 </div>
             </div>
         </div>
