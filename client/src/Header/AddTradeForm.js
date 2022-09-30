@@ -79,11 +79,11 @@ const AddTradeForm = (props) => {
                     </div>
                     <div className="form-group">
                         <label htmlFor="spreadType">Spread Type</label>
-                        <input
-                            type="text"
-                            name="spreadType"
-                            onChange={e => setSpreadType(e.target.value)}
-                        />
+                        <select name="spreadType" id="spreadType" onChange={e => setSpreadType(e.target.value)}>
+                            <option selected disabled>--Select Spread Type Below</option>
+                            <option value="Bull Call">Bull Call</option>
+                            <option value="Bear Put">Bear Put</option>
+                        </select>
                     </div>
                     <div className="form-group">
                         <label htmlFor="longStrike">Long Strike</label>
