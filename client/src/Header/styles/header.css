@@ -13,6 +13,7 @@
 	cursor: pointer;
 	color: inherit;
 	outline: inherit;
+	filter: invert(100%) sepia(60%) saturate(1676%) hue-rotate(178deg) brightness(105%) contrast(102%);
 }
 
 .hide {
@@ -25,6 +26,16 @@
 
 .close-menu-button {
 	width:25px;
+	background: none;
+	padding: 0;
+	border:none;
+	cursor: pointer;
+	color: inherit;
+	outline: inherit;
+}
+
+.open-menu-button {
+	width: 30px;
 	background: none;
 	padding: 0;
 	border:none;

@@ -9,6 +9,7 @@ import cancel from "../assets/cancel.svg";
 const Menu = (props) => {
 	
 	//constants
+	const monthToShow = props.monthToShow
 	const data = props.data;
 	const years = props.years
 	const yearSelected = props.yearSelected
@@ -26,6 +27,7 @@ const Menu = (props) => {
 	const handleYearChange = (e) => {
 		setYearSelected(e.target.value);
 		setShowMonthsContainer(yearSelected ? "months-shown" : "months-not-shown")
+		setMonthToShow([]);
 	};
 
 	return (
@@ -51,7 +53,7 @@ const Menu = (props) => {
 			<SideMenuMonths
 				data={data}
 				showMonthsContainer={showMonthsContainer}
-				monthToShow={props.monthToShow}
+				monthToShow={monthToShow}
 				setShowMonthsContainer={setShowMonthsContainer}
 				yearSelected={yearSelected}
 				setMonthToShow={setMonthToShow}
