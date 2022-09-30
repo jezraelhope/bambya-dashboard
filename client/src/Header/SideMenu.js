@@ -16,7 +16,7 @@ const Menu = (props) => {
 	const setMonthToShow = props.setMonthToShow;
 
 	//states
-	const [showMonths, setShowMonths] = useState("months-not-shown")
+	const [showMonthsContainer, setShowMonthsContainer] = useState("months-not-shown")
 	
 	//builder functions
 	const handleChange = () => {
@@ -25,7 +25,7 @@ const Menu = (props) => {
 
 	const handleYearChange = (e) => {
 		setYearSelected(e.target.value);
-		setShowMonths(yearSelected ? "months-shown" : "months-not-shown")
+		setShowMonthsContainer(yearSelected ? "months-shown" : "months-not-shown")
 	};
 
 	return (
@@ -50,9 +50,9 @@ const Menu = (props) => {
 			</nav>
 			<SideMenuMonths
 				data={data}
-				showMonths={showMonths}
+				showMonthsContainer={showMonthsContainer}
 				monthToShow={props.monthToShow}
-				setShowMonths={setShowMonths}
+				setShowMonthsContainer={setShowMonthsContainer}
 				yearSelected={yearSelected}
 				setMonthToShow={setMonthToShow}
 			/>

@@ -5,7 +5,7 @@ import minus from "../assets/minus.svg";
 
 const SideMenuMonths = (props) => {
     const data = props.data;
-    const showMonths = props.showMonths;
+    const showMonthsContainer = props.showMonthsContainer;
     const yearSelected = props.yearSelected;
     const monthToShow = props.monthToShow
     const setMonthToShow = props.setMonthToShow;
@@ -34,7 +34,7 @@ const SideMenuMonths = (props) => {
 	};
 
     return (
-        <div className={`${showMonths} months-container`}>
+        <div className={`${showMonthsContainer} months-container`}>
             <h2>{yearSelected}</h2>
             {months.map((month) => {
                 return (
