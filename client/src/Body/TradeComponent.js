@@ -6,7 +6,6 @@ const TradeComponent = (props) => {
 	const data = props.data
 	const trades = data[props.month][props.date];
 
-
 	return (
 		<div className="trade-table">
 			<table>
