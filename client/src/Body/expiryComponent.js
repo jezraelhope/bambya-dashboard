@@ -9,7 +9,7 @@ const ExpiryComponent = (props) => {
 	return expiry.map((date) => {
 		return (
 			<div className="expiry-container" key={date}>
-				<h4>{`${props.month} ${date}`}</h4>
+				<h4>Expiry Date: {`${props.month} ${date}`}</h4>
 				<TradeComponent
 					month={props.month}
 					date={date}

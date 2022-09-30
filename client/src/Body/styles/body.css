@@ -8,14 +8,79 @@
 	width: 100%;
 }
 
+/* Monthly Component */
+
 .monthly-container {
 	margin:2em 0;
 }
+
+/* Expiry Component */
 
 .expiry-container {
 	margin: 3em 0;
 }
 
-.trade-table {
+/* Trade Component */
+
+table, th, td {
 	border: 1px solid aliceblue;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+th {
+	padding: .5em;
+}
+
+
+/* Modal Component */
+
+.edit-delete-close-button-container {
+	position: relative;
+	margin: .7em;
+}
+
+.three-dots {
+	width: 20px;
+}
+
+.edit-delete-close-button {
+	border: none;
+    background: none;
+    cursor: pointer;
+    margin: 0;
+    padding: 0;
+}
+
+.hide-modal {
+	display: none;
+}
+
+.show-modal {
+	display: block;
+	position: absolute;
+	top: 0;
+	z-index: 2;
+	right: 1px;
+	width: 200em;
+}
+
+
+.actual-modal {
+	position: absolute;
+	top: 0;
+	right: 1px;
+	z-index: 3;
+	display: flex;
+	flex-direction: column;
+	background-color: #383838;
+	padding: 2em;
+}
+
+.actual-modal a {
+	color: aliceblue;
+	text-decoration: none;
+	margin-bottom: .5em;
 }

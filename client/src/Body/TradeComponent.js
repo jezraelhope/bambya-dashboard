@@ -1,9 +1,11 @@
-import React from "react";
-import newSampleData from "../data/newSampleData";
+import React, {useState} from "react";
+
+import Modal from "./Modal";
 
 const TradeComponent = (props) => {
 	const data = props.data
 	const trades = data[props.month][props.date];
+
 
 	return (
 		<div className="trade-table">
@@ -34,11 +36,8 @@ const TradeComponent = (props) => {
 							<td>data to be fetched</td>
 							<td>{trade.closePrice ? trade.closePrice - trade.openPrice : "Not available"}</td>
 							<td>{trade.comments}</td>
-							<td className="edit-delete-close-container">
-								<button className="edit">&#9997;</button>
-								<button className="close">&#x2715;</button>
-								<button className="delete">del</button>
-								
+							<td>
+								<Modal/>
 							</td>
 						</tr>
 					);
