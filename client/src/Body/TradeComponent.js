@@ -24,7 +24,7 @@ const TradeComponent = (props) => {
 				{trades.map((trade) => {
 					return (
 						<tr key={trade.symbol}>
-							<td>{trade.symbol}</td>
+							<td>{trade.symbol.toUpperCase()}</td>
 							<td>{trade.spreadType}</td>
 							<td>{trade.longStrike}</td>
 							<td>{trade.shortStrike}</td>
@@ -34,6 +34,12 @@ const TradeComponent = (props) => {
 							<td>data to be fetched</td>
 							<td>{trade.closePrice ? trade.closePrice - trade.openPrice : "Not available"}</td>
 							<td>{trade.comments}</td>
+							<div className="edit-delete-close-container">
+								<button className="edit">&#9997;</button>
+								<button className="close">&#x2715;</button>
+								<button className="delete">del</button>
+								
+							</div>
 						</tr>
 					);
 				})}
