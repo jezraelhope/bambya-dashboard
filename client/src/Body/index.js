@@ -12,7 +12,7 @@ const Body = (props) => {
 		<main className="main-container">
 			{(monthToShow || []).length
 				? null
-				: "Please choose the month from the side menu to filter"}
+				: "Please choose the month from the left side menu to filter"}
 			{monthToShow.map((month) => {
 				return (
 					<div className="monthly-container" key={month}>

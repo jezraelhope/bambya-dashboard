@@ -20,7 +20,7 @@ const TradeComponent = (props) => {
 					<th>Close Price</th>
 					<th>Current Price</th>
 					<th>Profit</th>
-					<th>Comments</th>
+					<th className="comment-header">Comments</th>
 				</tr>
 				{trades.map((trade) => {
 					return (

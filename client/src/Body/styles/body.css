@@ -20,6 +20,10 @@
 	margin: 3em 0;
 }
 
+.comment-header {
+	width: 300px;
+}
+
 /* Trade Component */
 
 table, th, td {

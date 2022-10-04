@@ -50,6 +50,7 @@ router.get("/", async (req, res) => {
                 shortStrike: trade.shortStrike,
                 openPrice: trade.openPrice,
                 comments: trade.openComments,
+                id: trade._id
             })
             return acc
         }, {})
@@ -85,3 +86,8 @@ router.post("/", async (req, res) => {
 })
 
 module.exports = router;
+
+//Delete
+router.delete("/:id", (req,res) => {
+   res.send("working???")
+})
