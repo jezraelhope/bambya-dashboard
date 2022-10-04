@@ -9,6 +9,7 @@ const MonthlyComponent = (props) => {
 				month={props.month}
 				year={props.year}
 				data={props.data}
+				handleDelete={props.handleDelete}
 			/>
 		</div>
 	);

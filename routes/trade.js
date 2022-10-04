@@ -88,6 +88,11 @@ router.post("/", async (req, res) => {
 module.exports = router;
 
 //Delete
-router.delete("/:id", (req,res) => {
-   res.send("working???")
+router.delete("/:id", async (req,res) => {
+   try {
+    const deletedTrade = await Trade.findByIdAndDelete(req.params.id).exec();
+    res.redirect("back")
+   } catch (err) {
+    res.redirect("back")
+   }
 })

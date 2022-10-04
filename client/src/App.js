@@ -28,6 +28,21 @@ function App(){
 		setData(fetched);
 		setYears(Object.keys(fetched))
 	}, [setData]);
+
+	const handleDelete = async (id) => {
+        if (window.confirm('Are you sure you want to delete?')) {
+            const deleteResult = await fetch(`/trades/${id}`, {
+                method: 'DELETE',
+                headers: {
+                    'content-type': 'application/json',
+                },
+                body: JSON.stringify(),
+            });
+            console.log("deleted!", deleteResult)
+        } else {
+            console.log('cancel');
+        }
+    };
 	
 	
 	return (
@@ -45,6 +60,7 @@ function App(){
 				monthToShow={monthToShow}
 				data={data}
 				years={years}
+				handleDelete={handleDelete}
 			/>
 			<Footer />
 		</div>

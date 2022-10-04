@@ -21,6 +21,7 @@ const Body = (props) => {
 							month={month}
 							year={yearSelected}
 							data={data}
+							handleDelete={props.handleDelete}
 						/>
 					</div>
 				);

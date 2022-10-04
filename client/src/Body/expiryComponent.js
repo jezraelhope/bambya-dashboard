@@ -14,6 +14,7 @@ const ExpiryComponent = (props) => {
 					month={props.month}
 					date={date}
 					data={data}
+					handleDelete={props.handleDelete}
 				/>
 			</div>
 		);

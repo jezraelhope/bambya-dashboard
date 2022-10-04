@@ -24,7 +24,7 @@ const TradeComponent = (props) => {
 				</tr>
 				{trades.map((trade) => {
 					return (
-						<tr key={trade.symbol}>
+						<tr key={trade.id}>
 							<td>{trade.symbol.toUpperCase()}</td>
 							<td>{trade.spreadType}</td>
 							<td>{trade.longStrike}</td>
@@ -36,7 +36,10 @@ const TradeComponent = (props) => {
 							<td>{trade.closePrice ? trade.closePrice - trade.openPrice : "Not available"}</td>
 							<td>{trade.comments}</td>
 							<td>
-								<Modal/>
+								<Modal
+									tradeId={trade.id}
+									handleDelete={props.handleDelete}
+								/>
 							</td>
 						</tr>
 					);
