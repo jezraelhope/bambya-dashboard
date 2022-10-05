@@ -7,6 +7,7 @@ const EditTradeModal = (props) => {
     const setModalVisibility = props.setModalVisibility;
     const setEditFormVisibility = props.setEditFormVisibility;
     const tradeData = props.tradeData;
+    const date = `${tradeData.date}`
     
     const hideMainModal = () => {
         setEditFormVisibility("hide-edit-trade-form");
@@ -28,6 +29,7 @@ const EditTradeModal = (props) => {
                         <input
                             type="date"
                             name="expiryDate"
+                            value={date.slice(0,10)}
                         />
                     </div>
                     <div className="form-group">
