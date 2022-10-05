@@ -50,7 +50,8 @@ router.get("/", async (req, res) => {
                 shortStrike: trade.shortStrike,
                 openPrice: trade.openPrice,
                 comments: trade.openComments,
-                id: trade._id
+                id: trade._id,
+                date: trade.expiryDate
             })
             return acc
         }, {})
