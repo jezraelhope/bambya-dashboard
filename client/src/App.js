@@ -15,6 +15,7 @@ function App(){
 	const [years, setYears] = useState([])
 	const [modalVisibility, setModalVisibility] = useState('hide-main-modal')
 	const [editFormVisibility, setEditFormVisibility] = useState('hide-edit-trade-form')
+	const [tradeData, setTradeData] = useState(0);
 
 	//deleting trade
 	
@@ -63,6 +64,8 @@ function App(){
 		<div className="App">
 			<div className={modalVisibility}>
 				<EditTradeModal
+					tradeData={tradeData}
+					setTradeData={setTradeData}
 					modalVisibility={modalVisibility}
 					setModalVisibility={setModalVisibility}
 					toggleMainModal={toggleMainModal}
@@ -85,6 +88,7 @@ function App(){
 				years={years}
 				setModalVisibility={setModalVisibility}
 				setEditFormVisibility={setEditFormVisibility}
+				setTradeData={setTradeData}
 			/>
 			<Footer />
 		</div>

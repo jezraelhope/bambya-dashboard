@@ -9,6 +9,8 @@ const Modal = (props) => {
     const [showModal, setShowModal] = useState("hide-modal")
     const setModalVisibility = props.setModalVisibility
     const setEditFormVisibility = props.setEditFormVisibility
+    const setTradeData = props.setTradeData
+    const trade = props.trade
 
 	const toggleModal = () => {
 		setShowModal(
@@ -20,6 +22,7 @@ const Modal = (props) => {
         setEditFormVisibility("edit-trade")
         setModalVisibility("show-main-modal")
         toggleModal()
+        setTradeData(trade)
     }
 
     return(

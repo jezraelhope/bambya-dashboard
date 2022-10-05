@@ -37,10 +37,11 @@ const TradeComponent = (props) => {
 							<td>{trade.comments}</td>
 							<td>
 								<ModalMenu
-									tradeId={trade.id}
 									handleDelete={props.handleDelete}
 									setModalVisibility={props.setModalVisibility}
 									setEditFormVisibility={props.setEditFormVisibility}
+									setTradeData={props.setTradeData}
+									trade={trade}
 								/>
 							</td>
 						</tr>

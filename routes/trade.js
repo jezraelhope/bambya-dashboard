@@ -55,7 +55,6 @@ router.get("/", async (req, res) => {
             return acc
         }, {})
         
-
         res.send(refactoredTrades)
     } catch (err) {
         console.log(err)

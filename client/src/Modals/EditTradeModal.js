@@ -4,15 +4,14 @@ import cancel from "../assets/cancel.svg";
 import "./styles/modals.css"
 
 const EditTradeModal = (props) => {
-    const setModalVisibility = props.setModalVisibility
-    const setEditFormVisibility = props.setEditFormVisibility
-
+    const setModalVisibility = props.setModalVisibility;
+    const setEditFormVisibility = props.setEditFormVisibility;
+    const tradeData = props.tradeData;
+    
     const hideMainModal = () => {
         setEditFormVisibility("hide-edit-trade-form");
         setModalVisibility("hide-main-modal")
     }
-
-
 
     return(
         <section className={props.editFormVisibility}>
@@ -36,6 +35,7 @@ const EditTradeModal = (props) => {
                         <input 
                             type="text"
                             name="symbol"
+                            value={tradeData.symbol}
                         />
                     </div>
                     <div className="form-group">
@@ -43,14 +43,25 @@ const EditTradeModal = (props) => {
                         <input
                             type="number"
                             name="contractsNumber"
+                            value={tradeData.contractsNumber}
                         />
                     </div>
                     <div className="form-group">
                         <label htmlFor="spreadType">Spread Type</label>
                         <select name="spreadType" id="spreadType">
-                            <option selected disabled>--Select Spread Type Below</option>
-                            <option value="Bull Call">Bull Call</option>
-                            <option value="Bear Put">Bear Put</option>
+                            <option disabled>--Select Spread Type Below</option>
+                            <option
+                                {...tradeData.spreadType === "Bull Call" ? "selected" : ""}
+                                value="Bull Call"
+                            >
+                                Bull Call
+                            </option>
+                            <option
+                                {...tradeData.spreadType === "Bear Put" ? "selected" : ""}
+                                value="Bear Put"
+                            >
+                                Bear Put
+                            </option>
                         </select>
                     </div>
                     <div className="form-group">
@@ -58,6 +69,7 @@ const EditTradeModal = (props) => {
                         <input
                             type="number"
                             name="expiry-date"
+                            value={tradeData.longStrike}
                         />
                     </div>
                     <div className="form-group">
@@ -65,6 +77,7 @@ const EditTradeModal = (props) => {
                         <input
                             type="number"
                             name="shortStrike"
+                            value={tradeData.shortStrike}
                         />
                     </div>
                     <div className="form-group">
@@ -72,6 +85,7 @@ const EditTradeModal = (props) => {
                         <input
                             type="number"
                             name="openPrice"
+                            value={tradeData.openPrice}
                         />
                     </div>
                     <div className="form-group">
@@ -79,6 +93,7 @@ const EditTradeModal = (props) => {
                         <input
                             type="text"
                             name="openComments"
+                            value={tradeData.comments}
                         />
                     </div>
                     <button className="form-button">Apply</button>
