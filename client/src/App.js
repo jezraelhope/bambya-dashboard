@@ -2,6 +2,7 @@ import React, { useState, useEffect} from "react";
 //import {BrowserRouter as Router, Routes, Route} from "react-router-dom"
 import Header from "./Header";
 import Body from "./Body";
+import EditTradeModal from "./Modals/EditTradeModal";
 import Footer from "./Footer";
 
 import "./App.css";
@@ -12,6 +13,10 @@ function App(){
 	const [data, setData] = useState([]);
 	const [yearSelected, setYearSelected] = useState('2021');
 	const [years, setYears] = useState([])
+	const [modalVisibility, setModalVisibility] = useState('hide-main-modal')
+	const [editFormVisibility, setEditFormVisibility] = useState('hide-edit-trade-form')
+
+	//deleting trade
 	
 	const handleDelete = async (id) => {
 		if (window.confirm('Are you sure you want to delete?')) {
@@ -28,6 +33,8 @@ function App(){
 		}
 	};
 
+	//fetching data from api
+
 	const fetchedData = async () => {
 		try {
 			const data = await fetch("/trades").then(res => res.json()).then(data => data)
@@ -43,11 +50,26 @@ function App(){
 		setYears(Object.keys(fetched))
 	}, [setData]);
 
-	
-	
+
+	//toggle Main Modal
+
+	const toggleMainModal = (toggleModal) => {
+		setModalVisibility(modalVisibility === "hide-main-modal" ? "show-main-modal" : "hide-main-modal")
+		toggleModal()
+		setEditFormVisibility(editFormVisibility === "hide-edit-trade-form" ? "edit-trade" : "hide-edit-trade-form")
+	}
 	
 	return (
 		<div className="App">
+			<div className={modalVisibility}>
+				<EditTradeModal
+					modalVisibility={modalVisibility}
+					setModalVisibility={setModalVisibility}
+					toggleMainModal={toggleMainModal}
+					editFormVisibility={editFormVisibility}
+					setEditFormVisibility={setEditFormVisibility}
+				/>
+			</div>
 			<Header
 				data={data}
 				monthToShow={monthToShow}
@@ -61,7 +83,8 @@ function App(){
 				monthToShow={monthToShow}
 				data={data}
 				years={years}
-				handleDelete={handleDelete}
+				setModalVisibility={setModalVisibility}
+				setEditFormVisibility={setEditFormVisibility}
 			/>
 			<Footer />
 		</div>

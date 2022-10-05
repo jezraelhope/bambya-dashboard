@@ -22,6 +22,8 @@ const Body = (props) => {
 							year={yearSelected}
 							data={data}
 							handleDelete={props.handleDelete}
+							setModalVisibility={props.setModalVisibility}
+							setEditFormVisibility={props.setEditFormVisibility}
 						/>
 					</div>
 				);

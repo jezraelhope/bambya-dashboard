@@ -10,6 +10,8 @@ const MonthlyComponent = (props) => {
 				year={props.year}
 				data={props.data}
 				handleDelete={props.handleDelete}
+				setModalVisibility={props.setModalVisibility}
+				setEditFormVisibility={props.setEditFormVisibility}
 			/>
 		</div>
 	);

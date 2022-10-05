@@ -15,6 +15,8 @@ const ExpiryComponent = (props) => {
 					date={date}
 					data={data}
 					handleDelete={props.handleDelete}
+					setModalVisibility={props.setModalVisibility}
+					setEditFormVisibility={props.setEditFormVisibility}
 				/>
 			</div>
 		);

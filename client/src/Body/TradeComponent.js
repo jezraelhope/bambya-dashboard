@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 
-import Modal from "./Modal";
+import ModalMenu from "./ModalMenu";
 
 const TradeComponent = (props) => {
 	const data = props.data
@@ -36,9 +36,11 @@ const TradeComponent = (props) => {
 							<td>{trade.closePrice ? trade.closePrice - trade.openPrice : "Not available"}</td>
 							<td>{trade.comments}</td>
 							<td>
-								<Modal
+								<ModalMenu
 									tradeId={trade.id}
 									handleDelete={props.handleDelete}
+									setModalVisibility={props.setModalVisibility}
+									setEditFormVisibility={props.setEditFormVisibility}
 								/>
 							</td>
 						</tr>
