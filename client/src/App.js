@@ -7,13 +7,27 @@ import Footer from "./Footer";
 import "./App.css";
 
 
-
 function App(){
 	const [monthToShow, setMonthToShow] = useState([]);
 	const [data, setData] = useState([]);
 	const [yearSelected, setYearSelected] = useState('2021');
 	const [years, setYears] = useState([])
 	
+	const handleDelete = async (id) => {
+		if (window.confirm('Are you sure you want to delete?')) {
+			const deleteResult = await fetch(`/trades/${id}`, {
+				method: 'DELETE',
+				headers: {
+					'content-type': 'application/json',
+				},
+				body: JSON.stringify(),
+			});
+			console.log("deleted!", deleteResult)
+		} else {
+			console.log('cancel');
+		}
+	};
+
 	const fetchedData = async () => {
 		try {
 			const data = await fetch("/trades").then(res => res.json()).then(data => data)
@@ -29,20 +43,7 @@ function App(){
 		setYears(Object.keys(fetched))
 	}, [setData]);
 
-	const handleDelete = async (id) => {
-        if (window.confirm('Are you sure you want to delete?')) {
-            const deleteResult = await fetch(`/trades/${id}`, {
-                method: 'DELETE',
-                headers: {
-                    'content-type': 'application/json',
-                },
-                body: JSON.stringify(),
-            });
-            console.log("deleted!", deleteResult)
-        } else {
-            console.log('cancel');
-        }
-    };
+	
 	
 	
 	return (

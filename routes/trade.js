@@ -91,7 +91,7 @@ module.exports = router;
 router.delete("/:id", async (req,res) => {
    try {
     const deletedTrade = await Trade.findByIdAndDelete(req.params.id).exec();
-    res.redirect("back")
+    return deletedTrade;
    } catch (err) {
     res.redirect("back")
    }

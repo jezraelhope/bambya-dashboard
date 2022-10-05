@@ -20,7 +20,7 @@ const Modal = (props) => {
                 <div className="actual-modal">
                     <a href="#">Edit</a>
                     <a href="#">Close</a>
-                    <button onClick={() => props.handleDelete(props.tradeId)}>Delete</button>
+                    <button onClick={async () => await props.handleDelete(props.tradeId)}>Delete</button>
                     <button className="close-window" onClick={toggleModal}>close window</button>
                 </div>
             </div>
