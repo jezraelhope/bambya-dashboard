@@ -85,14 +85,26 @@ router.post("/", async (req, res) => {
     }
 })
 
-module.exports = router;
+//Edit
+
+router.put("/:id", async (req,res) => {
+    try {
+        const editedTrade = await Trade.findByIdAndUpdate(req.params.id).exec();
+        return editedTrade
+    } catch (err) {
+        console.log(err)
+    }
+})
+
 
 //Delete
 router.delete("/:id", async (req,res) => {
-   try {
-    const deletedTrade = await Trade.findByIdAndDelete(req.params.id).exec();
-    return deletedTrade;
-   } catch (err) {
-    res.redirect("back")
-   }
+    try {
+        const deletedTrade = await Trade.findByIdAndDelete(req.params.id).exec();
+        return deletedTrade;
+    } catch (err) {
+        res.redirect("back")
+    }
 })
+
+module.exports = router;

@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import cancel from "../assets/cancel.svg";
 
 import "./styles/modals.css"
@@ -6,12 +6,60 @@ import "./styles/modals.css"
 const EditTradeModal = (props) => {
     const setModalVisibility = props.setModalVisibility;
     const setEditFormVisibility = props.setEditFormVisibility;
-    const tradeData = props.tradeData;
-    const date = `${tradeData.date}`
+    const tradeData = props?.tradeData;
+    const date = `${tradeData.date}`;
+
+    const [expiryDate, setExpiryDate] = useState(tradeData?.expiryDate)
+    const [symbol, setSymbol] = useState(tradeData.symbol);
+    const [contractsNumber, setContractsNumber] = useState(tradeData.contractsNumber)
+    const [spreadType, setSpreadType] = useState(tradeData.SpreadType)
+    const [longStrike, setLongStrike] = useState(tradeData.longStrike)
+    const [shortStrike, setShortStrike] = useState(tradeData.shortStrike)
+    const [openPrice, setOpenPrice] = useState(tradeData.openPrice)
+    const [openComments, setOpenComments] = useState(tradeData.openComments)
+
+    useEffect(() => {
+        setExpiryDate(tradeData?.expiryDate);
+        setSymbol(tradeData.symbol);
+        setContractsNumber(tradeData.contractsNumber);
+        setSpreadType(tradeData.spreadType);
+        setLongStrike(tradeData.longStrike);
+        setShortStrike(tradeData.shortStrike);
+        setOpenPrice(tradeData.openPrice);
+        setOpenComments(tradeData.openComments)
+    }, )
     
+
     const hideMainModal = () => {
         setEditFormVisibility("hide-edit-trade-form");
         setModalVisibility("hide-main-modal")
+    }
+
+    const handleSubmit = e => {
+
+        e.preventDefault();
+
+        const formData = {
+            expiryDate,
+            symbol,
+            contractsNumber,
+            spreadType,
+            longStrike,
+            shortStrike,
+            openPrice,
+            openComments
+        }
+
+        fetch(`/trades/${tradeData.id}`, {
+            method: "PUT",
+            headers: { "Content-Type": "application/json"},
+            body: JSON.stringify(formData)
+        }).then(() => {
+            console.log("trade edited!", formData)
+        })
+
+        e.target.reset();
+        hideMainModal();
     }
 
     return(
@@ -23,13 +71,14 @@ const EditTradeModal = (props) => {
             </div>
             <div className="edit-trade-form-container">
                 <h2>Edit Trade</h2>
-                <form className="edit-trade-form">
+                <form className="edit-trade-form" onSubmit={handleSubmit}>
                     <div className="form-group">
                         <label htmlFor="expiryDate">Expiry Date</label>
                         <input
                             type="date"
                             name="expiryDate"
                             value={date.slice(0,10)}
+                            onChange={e => setExpiryDate(e.target.value)}
                         />
                     </div>
                     <div className="form-group">
@@ -37,7 +86,8 @@ const EditTradeModal = (props) => {
                         <input 
                             type="text"
                             name="symbol"
-                            value={tradeData.symbol}
+                            value={symbol}
+                            onChange={e => setSymbol(e.target.symbol)}
                         />
                     </div>
                     <div className="form-group">
@@ -45,12 +95,13 @@ const EditTradeModal = (props) => {
                         <input
                             type="number"
                             name="contractsNumber"
-                            value={tradeData.contractsNumber}
+                            value={contractsNumber}
+                            onChange={e => setContractsNumber(e.target.contractsNumber)}
                         />
                     </div>
                     <div className="form-group">
                         <label htmlFor="spreadType">Spread Type</label>
-                        <select name="spreadType" id="spreadType">
+                        <select name="spreadType" id="spreadType" onChange={e => setSpreadType(e.target.spreadType)}>
                             <option disabled>--Select Spread Type Below</option>
                             <option
                                 {...tradeData.spreadType === "Bull Call" ? "selected" : ""}
@@ -71,7 +122,8 @@ const EditTradeModal = (props) => {
                         <input
                             type="number"
                             name="expiry-date"
-                            value={tradeData.longStrike}
+                            value={longStrike}
+                            onChange={e => setLongStrike(e.target.longStrike)}
                         />
                     </div>
                     <div className="form-group">
@@ -79,7 +131,8 @@ const EditTradeModal = (props) => {
                         <input
                             type="number"
                             name="shortStrike"
-                            value={tradeData.shortStrike}
+                            value={shortStrike}
+                            onChange={e => setShortStrike(e.target.shortStrike)}
                         />
                     </div>
                     <div className="form-group">
@@ -87,7 +140,8 @@ const EditTradeModal = (props) => {
                         <input
                             type="number"
                             name="openPrice"
-                            value={tradeData.openPrice}
+                            value={openPrice}
+                            onChange={e => setOpenPrice(e.target.openPrice)}
                         />
                     </div>
                     <div className="form-group">
@@ -95,7 +149,8 @@ const EditTradeModal = (props) => {
                         <input
                             type="text"
                             name="openComments"
-                            value={tradeData.comments}
+                            value={openComments}
+                            onChange={e => setOpenComments(e.target.openComments)}
                         />
                     </div>
                     <button className="form-button">Apply</button>

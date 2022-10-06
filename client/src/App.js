@@ -82,6 +82,7 @@ function App(){
 				years={years}
 			/>
 			<Body
+				handleDelete={handleDelete}
 				yearSelected={yearSelected}
 				monthToShow={monthToShow}
 				data={data}
