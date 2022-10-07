@@ -86,12 +86,22 @@ router.post("/", async (req, res) => {
 
 //Edit
 
-router.put("/:id", async (req,res) => {
-    console.log(req.body)
+router.put("/:id", async (req, res) => {
+    const tradeBody = {
+        sym: req.body.symbol,
+        expiryDate: req.body.expiryDate,
+        spreadType: req.body.spreadType,
+        longStrike: req.body.longStrike,
+        shortStrike: req.body.shortStrike,
+        contractsNumber: req.body.contractsNumber,
+        openPrice: req.body.openPrice,
+        openComments: req.body.openComments,
+        closingData: {}
+    }
     try {
-        const editedTrade = await Trade.findByIdAndUpdate(req.params.id).exec();
-        return editedTrade
-    } catch (err) {
+        const editedTrade = await Trade.findByIdAndUpdate(req.params.id, tradeBody, {new:true}).exec();
+        console.log(editedTrade)
+    } catch (e) {
         console.log(err)
     }
 })

@@ -7,14 +7,12 @@ const EditTradeModal = (props) => {
     const setModalVisibility = props.setModalVisibility;
     const setEditFormVisibility = props.setEditFormVisibility;
     const tradeData = props.tradeData;
-    const date = `${tradeData.date}`;
-    const formatedDate = date.slice(0,10)
 
 
     const [expiryDate, setExpiryDate] = useState(tradeData.date)
     const [symbol, setSymbol] = useState(tradeData?.symbol);
     const [contractsNumber, setContractsNumber] = useState(tradeData?.contractsNumber)
-    const [spreadType, setSpreadType] = useState(tradeData?.SpreadType)
+    const [spreadType, setSpreadType] = useState(tradeData?.spreadType)
     const [longStrike, setLongStrike] = useState(tradeData?.longStrike)
     const [shortStrike, setShortStrike] = useState(tradeData?.shortStrike)
     const [openPrice, setOpenPrice] = useState(tradeData?.openPrice)
@@ -39,7 +37,6 @@ const EditTradeModal = (props) => {
         tradeData.shortStrike,
         tradeData.openPrice,
         tradeData.comments,
-
         ]
     )
     
@@ -67,7 +64,7 @@ const EditTradeModal = (props) => {
         console.log(formData)
 
         try {
-            let res = await fetch(`/trades/${tradeData.id}`, {
+            fetch(`/trades/${tradeData.id}`, {
                 method: "PUT",
                 headers: { "Content-Type": "application/json"},
                 body: JSON.stringify(formData)
@@ -123,7 +120,7 @@ const EditTradeModal = (props) => {
                     </div>
                     <div className="form-group">
                         <label htmlFor="spreadType">Spread Type</label>
-                        <select name="spreadType" id="spreadType" onChange={e => setSpreadType(e.target.spreadType)}>
+                        <select name="spreadType" id="spreadType" onChange={e => setSpreadType(e.target.value)}>
                             <option disabled>--Select Spread Type Below</option>
                             <option
                                 {...tradeData.spreadType === "Bull Call" ? "selected" : ""}

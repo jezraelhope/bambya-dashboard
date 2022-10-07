@@ -1,6 +1,5 @@
 import React from "react";
 import TradeComponent from "./TradeComponent";
-import newSampleData from "../data/newSampleData";
 
 const ExpiryComponent = (props) => {
 	const data = props.data[props.year]

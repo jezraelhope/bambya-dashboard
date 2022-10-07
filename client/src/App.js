@@ -35,7 +35,6 @@ function App(){
 	};
 
 	//fetching data from api
-	
 	const fetchedData = async () => {
 		try {
 			const data = await fetch("/trades").then(res => res.json()).then(data => data)
@@ -44,20 +43,19 @@ function App(){
 			console.log(err)
 		}
 	}
-    
+
     useEffect(async () => {
         const fetched = await fetchedData()
 		setData(fetched);
 		setYears(Object.keys(fetched))
-		console.log(fetched)
 	}, []);
 
 
 	//toggle Main Modal
 
 	const toggleMainModal = (toggleModal) => {
-		setModalVisibility(modalVisibility === "hide-main-modal" ? "show-main-modal" : "hide-main-modal")
 		toggleModal()
+		setModalVisibility(modalVisibility === "hide-main-modal" ? "show-main-modal" : "hide-main-modal")
 		setEditFormVisibility(editFormVisibility === "hide-edit-trade-form" ? "edit-trade" : "hide-edit-trade-form")
 	}
 	
