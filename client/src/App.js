@@ -35,7 +35,7 @@ function App(){
 	};
 
 	//fetching data from api
-
+	
 	const fetchedData = async () => {
 		try {
 			const data = await fetch("/trades").then(res => res.json()).then(data => data)
@@ -49,7 +49,8 @@ function App(){
         const fetched = await fetchedData()
 		setData(fetched);
 		setYears(Object.keys(fetched))
-	}, [setData]);
+		console.log(fetched)
+	}, []);
 
 
 	//toggle Main Modal

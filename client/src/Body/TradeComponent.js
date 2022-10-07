@@ -1,10 +1,14 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 
 import ModalMenu from "./ModalMenu";
 
 const TradeComponent = (props) => {
 	const data = props.data
 	const trades = data[props.month][props.date];
+
+	useEffect(()=> {
+		console.log(data)
+	}, [data])
 
 	return (
 		<div className="trade-table">

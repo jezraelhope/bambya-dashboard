@@ -6,10 +6,12 @@ import "./styles/modals.css"
 const EditTradeModal = (props) => {
     const setModalVisibility = props.setModalVisibility;
     const setEditFormVisibility = props.setEditFormVisibility;
-    const tradeData = props?.tradeData;
+    const tradeData = props.tradeData;
     const date = `${tradeData.date}`;
+    const formatedDate = date.slice(0,10)
 
-    const [expiryDate, setExpiryDate] = useState(tradeData?.expiryDate)
+
+    const [expiryDate, setExpiryDate] = useState(tradeData.date)
     const [symbol, setSymbol] = useState(tradeData?.symbol);
     const [contractsNumber, setContractsNumber] = useState(tradeData?.contractsNumber)
     const [spreadType, setSpreadType] = useState(tradeData?.SpreadType)
@@ -17,17 +19,29 @@ const EditTradeModal = (props) => {
     const [shortStrike, setShortStrike] = useState(tradeData?.shortStrike)
     const [openPrice, setOpenPrice] = useState(tradeData?.openPrice)
     const [openComments, setOpenComments] = useState(tradeData?.openComments)
-
+    
     useEffect(() => {
-        setExpiryDate(tradeData.expiryDate);
+        setExpiryDate(tradeData.date);
         setSymbol(tradeData.symbol);
         setContractsNumber(tradeData.contractsNumber);
         setSpreadType(tradeData.spreadType);
         setLongStrike(tradeData.longStrike);
         setShortStrike(tradeData.shortStrike);
         setOpenPrice(tradeData.openPrice);
-        setOpenComments(tradeData.openComments)
-    }, [])
+        setOpenComments(tradeData.comments);
+        
+    }, [
+        tradeData.date,
+        tradeData.symbol,
+        tradeData.contractsNumber,
+        tradeData.spreadType,
+        tradeData.longStrike,
+        tradeData.shortStrike,
+        tradeData.openPrice,
+        tradeData.comments,
+
+        ]
+    )
     
 
     const hideMainModal = () => {
@@ -85,7 +99,7 @@ const EditTradeModal = (props) => {
                         <input
                             type="date"
                             name="expiryDate"
-                            value={date.slice(0,10)}
+                            value={`${expiryDate}`.slice(0,10)}
                             onChange={e => setExpiryDate(e.target.value)}
                         />
                     </div>
@@ -95,7 +109,7 @@ const EditTradeModal = (props) => {
                             type="text"
                             name="symbol"
                             value={symbol}
-                            onChange={e => setSymbol(e.target.symbol)}
+                            onChange={e => setSymbol(e.target.value)}
                         />
                     </div>
                     <div className="form-group">
@@ -104,7 +118,7 @@ const EditTradeModal = (props) => {
                             type="number"
                             name="contractsNumber"
                             value={contractsNumber}
-                            onChange={e => setContractsNumber(e.target.contractsNumber)}
+                            onChange={e => setContractsNumber(e.target.value)}
                         />
                     </div>
                     <div className="form-group">
@@ -131,7 +145,7 @@ const EditTradeModal = (props) => {
                             type="number"
                             name="expiry-date"
                             value={longStrike}
-                            onChange={e => setLongStrike(e.target.longStrike)}
+                            onChange={e => setLongStrike(e.target.value)}
                         />
                     </div>
                     <div className="form-group">
@@ -140,7 +154,7 @@ const EditTradeModal = (props) => {
                             type="number"
                             name="shortStrike"
                             value={shortStrike}
-                            onChange={e => setShortStrike(e.target.shortStrike)}
+                            onChange={e => setShortStrike(e.target.value)}
                         />
                     </div>
                     <div className="form-group">
@@ -149,7 +163,7 @@ const EditTradeModal = (props) => {
                             type="number"
                             name="openPrice"
                             value={openPrice}
-                            onChange={e => setOpenPrice(e.target.openPrice)}
+                            onChange={e => setOpenPrice(e.target.value)}
                         />
                     </div>
                     <div className="form-group">
@@ -158,7 +172,7 @@ const EditTradeModal = (props) => {
                             type="text"
                             name="openComments"
                             value={openComments}
-                            onChange={e => setOpenComments(e.target.openComments)}
+                            onChange={e => {setOpenComments(e.target.value)}}
                         />
                     </div>
                     <button type="submit" className="form-button">Apply</button>
