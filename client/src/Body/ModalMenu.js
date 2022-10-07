@@ -20,10 +20,10 @@ const Modal = (props) => {
 	}
 
     const showMainModal = () => {
+        setTradeData(trade)
         setEditFormVisibility("edit-trade")
         setModalVisibility("show-main-modal")
         toggleModal()
-        setTradeData(trade)
     }
 
     return(
@@ -35,7 +35,6 @@ const Modal = (props) => {
                 <div className="actual-modal">
                     <button onClick={showMainModal}>Edit</button>
                     <a href="#">Close</a>
-                    {console.log(props.tradeId)}
                     <button onClick={async () => await handleDelete(props.tradeId)}>Delete</button>
                     <button className="close-window" onClick={toggleModal}>close window</button>
                 </div>

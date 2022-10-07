@@ -64,7 +64,6 @@ router.get("/", async (req, res) => {
 
 //Create
 router.post("/", async (req, res) => {
-    console.log(req.body, res.body)
     const newTrade = {
         sym: req.body.symbol,
         expiryDate: req.body.expiryDate,
@@ -88,6 +87,7 @@ router.post("/", async (req, res) => {
 //Edit
 
 router.put("/:id", async (req,res) => {
+    console.log(req.body)
     try {
         const editedTrade = await Trade.findByIdAndUpdate(req.params.id).exec();
         return editedTrade

@@ -10,16 +10,16 @@ const EditTradeModal = (props) => {
     const date = `${tradeData.date}`;
 
     const [expiryDate, setExpiryDate] = useState(tradeData?.expiryDate)
-    const [symbol, setSymbol] = useState(tradeData.symbol);
-    const [contractsNumber, setContractsNumber] = useState(tradeData.contractsNumber)
-    const [spreadType, setSpreadType] = useState(tradeData.SpreadType)
-    const [longStrike, setLongStrike] = useState(tradeData.longStrike)
-    const [shortStrike, setShortStrike] = useState(tradeData.shortStrike)
-    const [openPrice, setOpenPrice] = useState(tradeData.openPrice)
-    const [openComments, setOpenComments] = useState(tradeData.openComments)
+    const [symbol, setSymbol] = useState(tradeData?.symbol);
+    const [contractsNumber, setContractsNumber] = useState(tradeData?.contractsNumber)
+    const [spreadType, setSpreadType] = useState(tradeData?.SpreadType)
+    const [longStrike, setLongStrike] = useState(tradeData?.longStrike)
+    const [shortStrike, setShortStrike] = useState(tradeData?.shortStrike)
+    const [openPrice, setOpenPrice] = useState(tradeData?.openPrice)
+    const [openComments, setOpenComments] = useState(tradeData?.openComments)
 
     useEffect(() => {
-        setExpiryDate(tradeData?.expiryDate);
+        setExpiryDate(tradeData.expiryDate);
         setSymbol(tradeData.symbol);
         setContractsNumber(tradeData.contractsNumber);
         setSpreadType(tradeData.spreadType);
@@ -27,7 +27,7 @@ const EditTradeModal = (props) => {
         setShortStrike(tradeData.shortStrike);
         setOpenPrice(tradeData.openPrice);
         setOpenComments(tradeData.openComments)
-    }, )
+    }, [])
     
 
     const hideMainModal = () => {
@@ -35,7 +35,7 @@ const EditTradeModal = (props) => {
         setModalVisibility("hide-main-modal")
     }
 
-    const handleSubmit = e => {
+    const handleSubmit = async (e) => {
 
         e.preventDefault();
 
@@ -50,17 +50,25 @@ const EditTradeModal = (props) => {
             openComments
         }
 
-        fetch(`/trades/${tradeData.id}`, {
-            method: "PUT",
-            headers: { "Content-Type": "application/json"},
-            body: JSON.stringify(formData)
-        }).then(() => {
-            console.log("trade edited!", formData)
-        })
+        console.log(formData)
+
+        try {
+            let res = await fetch(`/trades/${tradeData.id}`, {
+                method: "PUT",
+                headers: { "Content-Type": "application/json"},
+                body: JSON.stringify(formData)
+            }).then(() => {
+                console.log("trade edited!", formData)
+            });
+
+        } catch (err) {
+            console.log(err)
+        }
 
         e.target.reset();
         hideMainModal();
     }
+
 
     return(
         <section className={props.editFormVisibility}>
@@ -153,7 +161,7 @@ const EditTradeModal = (props) => {
                             onChange={e => setOpenComments(e.target.openComments)}
                         />
                     </div>
-                    <button className="form-button">Apply</button>
+                    <button type="submit" className="form-button">Apply</button>
                 </form>
             </div>
         </section>

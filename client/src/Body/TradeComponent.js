@@ -42,6 +42,7 @@ const TradeComponent = (props) => {
 									setEditFormVisibility={props.setEditFormVisibility}
 									setTradeData={props.setTradeData}
 									trade={trade}
+									tradeId={trade.id}
 								/>
 							</td>
 						</tr>
