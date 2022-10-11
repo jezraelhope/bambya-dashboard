@@ -31,34 +31,36 @@ const Menu = (props) => {
 	};
 
 	return (
-		<section className={props.toggleMenu}>
-			<div className="sidemenu-button-container">
-				<button className="close-menu-button" onClick={handleChange}>
-					<img src={cancel} alt="cancel-button" />
-				</button>
+		<div className={props.toggleMenu}>
+			<section>
+				<div className="sidemenu-button-container">
+					<button className="close-menu-button" onClick={handleChange}>
+						<img src={cancel} alt="cancel-button" />
+					</button>
+				</div>
+				<nav className="year-nav">
+					<ul className="years-tab">
+						{years.map(year => {
+							return(
+								<li className="year-item" key={year}>
+									<button onClick={handleYearChange} value={year}>
+										{year}
+									</button>
+								</li>
+							)
+						})}
+					</ul>
+				</nav>
+				<SideMenuMonths
+					data={data}
+					showMonthsContainer={showMonthsContainer}
+					monthToShow={monthToShow}
+					setShowMonthsContainer={setShowMonthsContainer}
+					yearSelected={yearSelected}
+					setMonthToShow={setMonthToShow}
+				/>
+			</section>
 			</div>
-			<nav className="year-nav">
-				<ul className="years-tab">
-					{years.map(year => {
-						return(
-							<li className="year-item" key={year}>
-								<button onClick={handleYearChange} value={year}>
-									{year}
-								</button>
-							</li>
-						)
-					})}
-				</ul>
-			</nav>
-			<SideMenuMonths
-				data={data}
-				showMonthsContainer={showMonthsContainer}
-				monthToShow={monthToShow}
-				setShowMonthsContainer={setShowMonthsContainer}
-				yearSelected={yearSelected}
-				setMonthToShow={setMonthToShow}
-			/>
-		</section>
 	);
 };
 
