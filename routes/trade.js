@@ -1,6 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const Trade = require('../models/trades');
+const request = require('request');
+const config = require('../config');
 
 const monthWords = {
     1: "January",
@@ -16,6 +18,26 @@ const monthWords = {
     11: "November",
     12: "December"
 }
+
+// //Alpha Advantage Config
+
+// let ticker = "TSLA";
+// let url = `https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=${ticker}&interval=5min&apikey=${config.alphaAdvantageAPIKey}`
+
+// request.get({
+//     url: url,
+//     json: true,
+//     headers: {'User-Agent': 'request'}
+//   }, (err, res, data) => {
+//     if (err) {
+//       console.log('Error:', err);
+//     } else if (res.statusCode !== 200) {
+//       console.log('Status:', res.statusCode);
+//     } else {
+//       // data is successfully parsed as a JSON object:
+//       console.log(data);
+//     }
+// });
 
 //Index
 router.get("/", async (req, res) => {
@@ -100,6 +122,7 @@ router.put("/:id", async (req, res) => {
     }
     try {
         const editedTrade = await Trade.findByIdAndUpdate(req.params.id, tradeBody, {new:true}).exec();
+        res.send(editedTrade)
         console.log(editedTrade)
     } catch (e) {
         console.log(err)
@@ -111,7 +134,7 @@ router.put("/:id", async (req, res) => {
 router.delete("/:id", async (req,res) => {
     try {
         const deletedTrade = await Trade.findByIdAndDelete(req.params.id).exec();
-        return deletedTrade;
+        res.send(deletedTrade)
     } catch (err) {
         res.redirect("back")
     }

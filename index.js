@@ -44,6 +44,7 @@ app.use(expressSession({
 	saveUninitialized: false
 }))
 
+
 //Passport config
 app.use(passport.initialize());
 app.use(passport.session());
