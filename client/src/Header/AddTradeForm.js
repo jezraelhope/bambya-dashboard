@@ -37,6 +37,7 @@ const AddTradeForm = (props) => {
         })
 
         e.target.reset();
+        props.setToggleAddTrade("hide");
     }
 
     const handleChange = () => {
