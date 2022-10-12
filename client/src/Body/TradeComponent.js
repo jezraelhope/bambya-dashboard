@@ -29,7 +29,7 @@ const TradeComponent = (props) => {
 				{trades.map((trade) => {
 					return (
 						<tr key={trade.id}>
-							<td>{trade.symbol.toUpperCase()}</td>
+							<td>{trade.symbol?.toUpperCase()}</td>
 							<td>{trade.spreadType}</td>
 							<td>{trade.longStrike}</td>
 							<td>{trade.shortStrike}</td>
