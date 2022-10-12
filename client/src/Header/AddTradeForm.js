@@ -13,8 +13,6 @@ const AddTradeForm = (props) => {
     const openCommentsRef = useRef('');
 
     const [expiryDate, setExpiryDate] = useState(new Date())
-    //const [symbol, setSymbol] = useState('')
-    const [contractsNumber, setContractsNumber] = useState(0)
     const [spreadType, setSpreadType] = useState('Bull Call')
     const [longStrike, setLongStrike] = useState(0)
     const [shortStrike, setShortStrike] = useState(0)
@@ -29,12 +27,12 @@ const AddTradeForm = (props) => {
         const formData = {
             expiryDate,
             symbol: symbolRef.current.value,
-            contractsNumber,
-            spreadType,
-            longStrike,
-            shortStrike,
-            openPrice,
-            openComments
+            contractsNumber: contractsNumberRef.current.value,
+            spreadType: spreadTypeRef.current.value,
+            longStrike: longStrikeRef.current.value,
+            shortStrike: shortStrikeRef.current.value,
+            openPrice: openPriceRef.current.value,
+            openComments: openCommentsRef.current.value
         }
 
         fetch('/trades', {
@@ -76,21 +74,18 @@ const AddTradeForm = (props) => {
                         <input 
                             type="text"
                             ref={symbolRef}
-                            // name="symbol"
-                            // onChange={e => setSymbol(e.target.value)}
                         />
                     </div>
                     <div className="form-group">
                         <label htmlFor="numberContracts">Number of Contracts</label>
                         <input
                             type="number"
-                            name="contractsNumber"
-                            onChange={e => setContractsNumber(e.target.value)}
+                            ref={contractsNumberRef}
                         />
                     </div>
                     <div className="form-group">
                         <label htmlFor="spreadType">Spread Type</label>
-                        <select name="spreadType" id="spreadType" onChange={e => setSpreadType(e.target.value)}>
+                        <select ref={spreadTypeRef} id="spreadType">
                             <option selected disabled>--Select Spread Type Below</option>
                             <option value="Bull Call">Bull Call</option>
                             <option value="Bear Put">Bear Put</option>
@@ -100,32 +95,28 @@ const AddTradeForm = (props) => {
                         <label htmlFor="longStrike">Long Strike</label>
                         <input
                             type="number"
-                            name="expiry-date"
-                            onChange={e => setLongStrike(e.target.value)}
+                            ref={longStrikeRef}
                         />
                     </div>
                     <div className="form-group">
                         <label htmlFor="shortStrike">Short Strike</label>
                         <input
                             type="number"
-                            name="shortStrike"
-                            onChange={e => setShortStrike(e.target.value)}
+                            ref={shortStrikeRef}
                         />
                     </div>
                     <div className="form-group">
                         <label htmlFor="openPrice">Open Price</label>
                         <input
                             type="number"
-                            name="openPrice"
-                            onChange={e => setOpenPrice(e.target.value)}
+                            ref={openPriceRef}
                         />
                     </div>
                     <div className="form-group">
                         <label htmlFor="openComments">Open Comments</label>
                         <input
                             type="text"
-                            name="openComments"
-                            onChange={e => setOpenComments(e.target.value)}
+                            ref={openCommentsRef}
                         />
                     </div>
                     <button className="form-button">Apply</button>
