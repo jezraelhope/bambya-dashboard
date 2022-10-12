@@ -125,7 +125,35 @@ router.put("/:id", async (req, res) => {
         res.send(editedTrade)
         console.log(editedTrade)
     } catch (e) {
-        console.log(err)
+        console.log(e)
+    }
+})
+
+//closing trade
+
+router.put("/:id", async (req, res) => {
+    const closeTradeBody = {
+        sym: req.body.symbol,
+        expiryDate: req.body.expiryDate,
+        spreadType: req.body.spreadType,
+        longStrike: req.body.longStrike,
+        shortStrike: req.body.shortStrike,
+        contractsNumber: req.body.contractsNumber,
+        openPrice: req.body.openPrice,
+        openComments: req.body.openComments,
+        closingData: {
+            closePrice: req.body.closePrice,
+            closingDate: req.body.closingDate,
+            profit: req.body.profit,
+            closingComments: req.body.closing
+        }
+    }
+    try {
+        const editedTrade = await Trade.findByIdAndUpdate(req.params.id, closeTradeBody, {new:true}).exec();
+        res.send(editedTrade)
+        console.log(editedTrade)
+    } catch (e) {
+        console.log(e)
     }
 })
 

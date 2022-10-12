@@ -1,10 +1,19 @@
-import React, {useState} from "react";
+import React, {useState, useRef} from "react";
 import cancel from "../assets/cancel.svg";
 
 const AddTradeForm = (props) => {
 
+    const expriryRef = useRef(new Date());
+    const symbolRef = useRef('');
+    const contractsNumberRef = useRef(0);
+    const spreadTypeRef = useRef('');
+    const longStrikeRef = useRef(0);
+    const shortStrikeRef = useRef(0);
+    const openPriceRef = useRef(0);
+    const openCommentsRef = useRef('');
+
     const [expiryDate, setExpiryDate] = useState(new Date())
-    const [symbol, setSymbol] = useState('')
+    //const [symbol, setSymbol] = useState('')
     const [contractsNumber, setContractsNumber] = useState(0)
     const [spreadType, setSpreadType] = useState('Bull Call')
     const [longStrike, setLongStrike] = useState(0)
@@ -19,7 +28,7 @@ const AddTradeForm = (props) => {
 
         const formData = {
             expiryDate,
-            symbol,
+            symbol: symbolRef.current.value,
             contractsNumber,
             spreadType,
             longStrike,
@@ -66,8 +75,9 @@ const AddTradeForm = (props) => {
                         <label htmlFor="symbol">Ticker Symbol</label>
                         <input 
                             type="text"
-                            name="symbol"
-                            onChange={e => setSymbol(e.target.value)}
+                            ref={symbolRef}
+                            // name="symbol"
+                            // onChange={e => setSymbol(e.target.value)}
                         />
                     </div>
                     <div className="form-group">

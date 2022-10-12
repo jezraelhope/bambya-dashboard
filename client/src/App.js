@@ -44,11 +44,11 @@ function App(){
 		}
 	}
 
-    useEffect(async () => {
-        const fetched = await fetchedData()
+	useEffect(async () => {
+		const fetched = await fetchedData()
 		setData(fetched);
 		setYears(Object.keys(fetched))
-	}, []);
+	}, [])
 
 
 	//toggle Main Modal

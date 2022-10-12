@@ -18,9 +18,9 @@ const Trade = require('./models/trades');
 const User = require('./models/user')
 
 //Route Imports
-// const tradeRoutes = require('./routes/trade');
+const tradeRoutes = require('./routes/trade');
 const authRoutes = require('./routes/auth');
-const mainRoutes = require('./routes/main')
+// const mainRoutes = require('./routes/trade')
 
 
 //+++++++++++++++++++++++++++++++++++++
@@ -55,7 +55,7 @@ passport.use(new LocalStrategy(User.authenticate()));
 //Route Config
 //app.use("/", mainRoutes)
 app.use("/", authRoutes)
-app.use("/", mainRoutes)
+app.use("/trades", tradeRoutes)
 
 
 //Main Routes
