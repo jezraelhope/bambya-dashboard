@@ -24,6 +24,7 @@ const Body = (props) => {
 							handleDelete={props.handleDelete}
 							setModalVisibility={props.setModalVisibility}
 							setEditFormVisibility={props.setEditFormVisibility}
+							setCloseTradeFormVisibility={props.setCloseTradeFormVisibility}
 							setTradeData={props.setTradeData}
 						/>
 					</div>

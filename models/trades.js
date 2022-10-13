@@ -9,19 +9,19 @@ const tradesSchema = new mongoose.Schema({
     contractsNumber: Number,
     openPrice: Number,
     openComments: String,
+    closingData: {
+        closePrice: Number,
+        closeDate: Date,
+        closeComments: String
+    },
     owner: {
         id: {
             type: mongoose.Schema.Types.ObjectId,
             ref: "User"
         },
         username: String
-    },
-    closingData: {
-        closePrice: Number,
-        closingDate: Date,
-        profit: Number,
-        closingComments: String
     }
+    
 })
 
 module.exports = mongoose.model("trades", tradesSchema)

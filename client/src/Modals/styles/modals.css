@@ -55,3 +55,22 @@
 	outline: inherit;
 	margin-right: .7rem;
 }
+
+/* Close Trade Modal */
+
+.hide-close-trade-form {
+	display: none;
+}
+
+.close-trade-form {
+    width: 30%;
+    background-color: #C4C4C4;
+    padding: 1.3rem 1.3rem 4em 1.3rem;
+    position: absolute;
+    top: 10%;
+    right: 0;
+    left: 0;
+    gap: .4rem;
+    margin: 0 auto;
+    color: black;
+}

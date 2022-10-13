@@ -1,14 +1,10 @@
-import React, {useEffect} from "react";
+import React from "react";
 
 import ModalMenu from "./ModalMenu";
 
 const TradeComponent = (props) => {
 	const data = props.data
 	const trades = data[props.month][props.date];
-
-	useEffect(()=> {
-		console.log(data)
-	}, [data])
 
 	return (
 		<div className="trade-table">
@@ -27,6 +23,7 @@ const TradeComponent = (props) => {
 					<th className="comment-header">Comments</th>
 				</tr>
 				{trades.map((trade) => {
+					console.log(trade)
 					return (
 						<tr key={trade.id}>
 							<td>{trade.symbol?.toUpperCase()}</td>
@@ -35,15 +32,16 @@ const TradeComponent = (props) => {
 							<td>{trade.shortStrike}</td>
 							<td>{trade.contractsNumber}</td>
 							<td>{trade.openPrice}</td>
-							<td>{trade.closePrice}</td>
+							<td>{trade.closingData.closePrice}</td>
 							<td>data to be fetched</td>
-							<td>{trade.closePrice ? trade.closePrice - trade.openPrice : "Not available"}</td>
+							<td>{trade.closingData.closePrice ? trade.closingData.closePrice - trade.openPrice : "Not available"}</td>
 							<td>{trade.comments}</td>
 							<td>
 								<ModalMenu
 									handleDelete={props.handleDelete}
 									setModalVisibility={props.setModalVisibility}
 									setEditFormVisibility={props.setEditFormVisibility}
+									setCloseTradeFormVisibility={props.setCloseTradeFormVisibility}
 									setTradeData={props.setTradeData}
 									trade={trade}
 									tradeId={trade.id}

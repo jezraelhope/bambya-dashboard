@@ -2,8 +2,6 @@ import React, {useState, useRef} from "react";
 import cancel from "../assets/cancel.svg";
 
 const AddTradeForm = (props) => {
-
-    const expriryRef = useRef(new Date());
     const symbolRef = useRef('');
     const contractsNumberRef = useRef(0);
     const spreadTypeRef = useRef('');
@@ -12,12 +10,7 @@ const AddTradeForm = (props) => {
     const openPriceRef = useRef(0);
     const openCommentsRef = useRef('');
 
-    const [expiryDate, setExpiryDate] = useState(new Date())
-    const [spreadType, setSpreadType] = useState('Bull Call')
-    const [longStrike, setLongStrike] = useState(0)
-    const [shortStrike, setShortStrike] = useState(0)
-    const [openPrice, setOpenPrice] = useState(0)
-    const [openComments, setOpenComments] = useState("")
+    const expiryDateRef = useRef(new Date())
 
 
     const handleSubmit = e => {
@@ -25,7 +18,7 @@ const AddTradeForm = (props) => {
         e.preventDefault();
 
         const formData = {
-            expiryDate,
+            expiryDate: expiryDateRef.current.value,
             symbol: symbolRef.current.value,
             contractsNumber: contractsNumberRef.current.value,
             spreadType: spreadTypeRef.current.value,
@@ -65,8 +58,7 @@ const AddTradeForm = (props) => {
                         <label htmlFor="expiryDate">Expiry Date</label>
                         <input
                             type="date"
-                            name="expiryDate"
-                            onChange={e => setExpiryDate(e.target.value)}
+                            ref={expiryDateRef}
                         />
                     </div>
                     <div className="form-group">

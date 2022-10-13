@@ -7,6 +7,7 @@ const Modal = (props) => {
     const [showModal, setShowModal] = useState("hide-modal")
     const setModalVisibility = props.setModalVisibility
     const setEditFormVisibility = props.setEditFormVisibility
+    const setCloseTradeFormVisibility=props.setCloseTradeFormVisibility
     const setTradeData = props.setTradeData
     const trade = props.trade
     const handleDelete = props.handleDelete
@@ -16,6 +17,13 @@ const Modal = (props) => {
 			showModal === "hide-modal" ? "show-modal" : "hide-modal"
 		)
 	}
+
+    const showCloseTradeForm = () => {
+        setTradeData(trade)
+        setCloseTradeFormVisibility("close-trade-form")
+        setModalVisibility("show-main-modal")
+        toggleModal()
+    }
 
     const showMainModal = () => {
         setTradeData(trade)
@@ -32,7 +40,7 @@ const Modal = (props) => {
             <div className={showModal} id="modal">
                 <div className="actual-modal">
                     <button onClick={showMainModal}>Edit</button>
-                    <button>Close</button>
+                    <button onClick={showCloseTradeForm}>Close</button>
                     <button onClick={async () => await handleDelete(props.tradeId)}>Delete</button>
                     <button className="close-window" onClick={toggleModal}>close window</button>
                 </div>

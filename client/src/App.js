@@ -3,6 +3,7 @@ import React, { useState, useEffect} from "react";
 import Header from "./Header";
 import Body from "./Body";
 import EditTradeModal from "./Modals/EditTradeModal";
+import CloseTradeModal from "./Modals/CloseTradeModal"
 import Footer from "./Footer";
 
 import "./App.css";
@@ -15,6 +16,7 @@ function App(){
 	const [years, setYears] = useState([])
 	const [modalVisibility, setModalVisibility] = useState('hide-main-modal')
 	const [editFormVisibility, setEditFormVisibility] = useState('hide-edit-trade-form')
+	const [closeTradeFormVisibility, setCloseTradeFormVisibility] = useState('hide-close-trade-form')
 	const [tradeData, setTradeData] = useState({});
 
 	//deleting trade
@@ -71,6 +73,15 @@ function App(){
 					editFormVisibility={editFormVisibility}
 					setEditFormVisibility={setEditFormVisibility}
 				/>
+				<CloseTradeModal
+					tradeData={tradeData}
+					setTradeData={setTradeData}
+					modalVisibility={modalVisibility}
+					setModalVisibility={setModalVisibility}
+					toggleMainModal={toggleMainModal}
+					closeTradeFormVisibility={closeTradeFormVisibility}
+					setCloseTradeFormVisibility={setCloseTradeFormVisibility}
+				/>
 			</div>
 			<Header
 				data={data}
@@ -88,6 +99,7 @@ function App(){
 				years={years}
 				setModalVisibility={setModalVisibility}
 				setEditFormVisibility={setEditFormVisibility}
+				setCloseTradeFormVisibility={setCloseTradeFormVisibility}
 				setTradeData={setTradeData}
 			/>
 			<Footer />
