@@ -5,18 +5,14 @@ import minus from "../assets/minus.svg";
 
 const SideMenuMonths = (props) => {
     const data = props.data;
+    const monthsMap = props.monthsMap;
+    const setMonthsMap = props.setMonthsMap;
     const showMonthsContainer = props.showMonthsContainer;
     const yearSelected = props.yearSelected;
     const monthToShow = props.monthToShow
     const setMonthToShow = props.setMonthToShow;
     const months = Object.keys(data[yearSelected] || {})
-
-    const [monthsMap, setMonthsMap] = useState(
-        months.reduce((acc, elem) => {
-            acc[elem] = false;
-            return acc;
-        }, {})
-    );
+   
 
     useEffect(() => {
         const enabledMonths = Object.keys(monthsMap || []).filter(

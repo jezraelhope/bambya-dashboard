@@ -24,6 +24,10 @@
 	width: 300px;
 }
 
+.profit-header {
+	width: 100px;
+}
+
 /* Trade Component */
 
 table, th, td {

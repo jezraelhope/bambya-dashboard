@@ -15,9 +15,16 @@ const Menu = (props) => {
 	const yearSelected = props.yearSelected
 	const setYearSelected = props.setYearSelected;
 	const setMonthToShow = props.setMonthToShow;
+	const months = Object.keys(data[yearSelected] || {})
 
 	//states
-	const [showMonthsContainer, setShowMonthsContainer] = useState("months-not-shown")
+	const [showMonthsContainer, setShowMonthsContainer] = useState("months-not-shown");
+	const [monthsMap, setMonthsMap] = useState(
+        months.reduce((acc, elem) => {
+            acc[elem] = false;
+            return acc;
+        }, {})
+    );
 	
 	//builder functions
 	const handleChange = () => {
@@ -28,6 +35,7 @@ const Menu = (props) => {
 		setYearSelected(e.target.value);
 		setShowMonthsContainer(yearSelected ? "months-shown" : "months-not-shown")
 		setMonthToShow([]);
+		setMonthsMap({});
 	};
 
 	return (
@@ -52,6 +60,8 @@ const Menu = (props) => {
 					</ul>
 				</nav>
 				<SideMenuMonths
+					setMonthsMap={setMonthsMap}
+					monthsMap={monthsMap}
 					data={data}
 					showMonthsContainer={showMonthsContainer}
 					monthToShow={monthToShow}
