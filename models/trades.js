@@ -12,7 +12,8 @@ const tradesSchema = new mongoose.Schema({
     closingData: {
         closePrice: Number,
         closeDate: Date,
-        closeComments: String
+        closeComments: String,
+        profit: Number
     },
     owner: {
         id: {

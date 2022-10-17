@@ -17,7 +17,8 @@ router.put("/:id", async (req, res) => {
         closingData: {
             closeDate: req.body.closingData.closeDate,
             closePrice: req.body.closingData.closePrice,
-            closeComments: req.body.closingData.closeComments
+            closeComments: req.body.closingData.closeComments,
+            profit: req.body.closingData.profit
         }
         
     }

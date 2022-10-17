@@ -34,12 +34,11 @@ const CloseTradeModal = (props) => {
             closingData: {
                 closeDate: closeDate.current.value,
                 closePrice: closePrice.current.value,
-                closeComments: closeComments.current.value
+                closeComments: closeComments.current.value,
+                profit: closePrice.current.value - tradeData.openPrice
             }
             
         }
-
-        console.log(closeTradeData)
 
         try {
             fetch(`/close/${tradeData.id}`, {

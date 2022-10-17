@@ -16,7 +16,7 @@ const Body = (props) => {
 			{monthToShow.map((month) => {
 				return (
 					<div className="monthly-container" key={month}>
-						<h2>{month}</h2>
+						<h2 className="month-name">{month}</h2>
 						<MonthlyComponent
 							month={month}
 							year={yearSelected}

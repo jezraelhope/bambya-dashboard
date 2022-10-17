@@ -6,24 +6,30 @@ const TradeComponent = (props) => {
 	const data = props.data
 	const trades = data[props.month][props.date];
 
+	const profits = trades.reduce((acc, trade) => {
+		return acc.closingData.profit + trade.closingData.profit
+	}, 0)
+
+	console.log(profits)
+
 	return (
 		<div className="trade-table">
 			<table>
 				<tbody>
 				<tr>
-					<th>Symbol</th>
-					<th>Spread Type</th>
-					<th>Long Strike</th>
-					<th>Short Strike</th>
-					<th>No. of Contracts</th>
-					<th>Open Price</th>
-					<th>Close Price</th>
-					<th>Current Price</th>
-					<th className="profit-header">Profit</th>
-					<th className="comment-header">Comments</th>
+					<th className="table-heading">Symbol</th>
+					<th className="table-heading">Spread Type</th>
+					<th className="table-heading">Long Strike</th>
+					<th className="table-heading">Short Strike</th>
+					<th className="table-heading">No. of Contracts</th>
+					<th className="table-heading">Open Price</th>
+					<th className="table-heading">Close Price</th>
+					<th className="table-heading">Current Price</th>
+					<th className="profit-header table-heading">Profit</th>
+					<th className="comment-header table-heading">Comments</th>
+					<th className="table-heading"></th>
 				</tr>
 				{trades.map((trade) => {
-					console.log(trade)
 					return (
 						<tr key={trade.id}>
 							<td>{trade.symbol?.toUpperCase()}</td>
@@ -34,7 +40,7 @@ const TradeComponent = (props) => {
 							<td>{trade.openPrice}</td>
 							<td>{trade.closingData.closePrice}</td>
 							<td>data to be fetched</td>
-							<td>{trade.closingData.closePrice ? trade.closingData.closePrice - trade.openPrice : "Not available"}</td>
+							<td>{trade.closingData.profit ? trade.closingData.profit : "Not available"}</td>
 							<td>{trade.comments}</td>
 							<td>
 								<ModalMenu

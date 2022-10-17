@@ -6,18 +6,50 @@
 	justify-content: space-between;
 	margin:0 auto;
 	width: 100%;
+	color: #25C99E;
 }
 
 /* Monthly Component */
 
 .monthly-container {
-	margin:2em 0;
+	margin: 1em 0;
+	background-color: #141823;
+	border: #444444 solid 1px;
+	border-radius: 1%;
+}
+
+.month-name {
+	color: #01BBD1;
+	font-size: 2em;
+	font-weight: 500;
+	margin-bottom: .5em;
+}
+
+.monthly {
+	margin: 0 2em;
+}
+
+.total-profit {
+	margin: 0 1em 2em 1em;
+	color: #CF085A;
 }
 
 /* Expiry Component */
 
 .expiry-container {
 	margin: 3em 0;
+}
+
+.expiry-date {
+	color: aliceblue;
+}
+
+/* Trade Component */
+
+.table-heading {
+	background-color: #010229;
+	color: aliceblue;
+	font-weight: 600;
 }
 
 .comment-header {
@@ -27,8 +59,6 @@
 .profit-header {
 	width: 100px;
 }
-
-/* Trade Component */
 
 table, th, td {
 	border: 1px solid aliceblue;

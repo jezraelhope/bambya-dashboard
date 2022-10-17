@@ -31,7 +31,7 @@ const SideMenuMonths = (props) => {
 
     return (
         <div className={`${showMonthsContainer} months-container`}>
-            <h2>{yearSelected}</h2>
+            <h2 className="year">{yearSelected}</h2>
             {months.map((month) => {
                 return (
                     <div key={month}>
