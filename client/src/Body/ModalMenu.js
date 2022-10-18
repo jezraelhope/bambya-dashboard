@@ -10,7 +10,7 @@ const Modal = (props) => {
     const setCloseTradeFormVisibility=props.setCloseTradeFormVisibility
     const setTradeData = props.setTradeData
     const trade = props.trade
-    const handleDelete = props.handleDelete
+    // const handleDelete = props.handleDelete
 
 	const toggleModal = () => {
 		setShowModal(
@@ -32,6 +32,24 @@ const Modal = (props) => {
         toggleModal()
     }
 
+    //deleting trade
+	
+	const handleDelete = async () => {
+		if (window.confirm('Are you sure you want to delete?')) {
+			const deleteResult = await fetch(`/trades/${props.tradeId}`, {
+				method: 'DELETE',
+				headers: {
+					'content-type': 'application/json',
+				},
+				body: JSON.stringify(),
+			});
+			console.log("deleted!", deleteResult)
+            toggleModal()
+		} else {
+			console.log('cancel');
+		}
+	};
+
     return(
         <div className="edit-delete-close-button-container">
             <button className="edit-delete-close-button" onClick={toggleModal}>
@@ -41,7 +59,7 @@ const Modal = (props) => {
                 <div className="actual-modal">
                     <button onClick={showMainModal}>Edit</button>
                     <button onClick={showCloseTradeForm}>Close</button>
-                    <button onClick={async () => await handleDelete(props.tradeId)}>Delete</button>
+                    <button onClick={handleDelete}>Delete</button>
                     <button className="close-window" onClick={toggleModal}>close window</button>
                 </div>
             </div>
