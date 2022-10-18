@@ -4,6 +4,7 @@ import Header from "./Header";
 import Body from "./Body";
 import EditTradeModal from "./Modals/EditTradeModal";
 import CloseTradeModal from "./Modals/CloseTradeModal"
+import Background from "./Background";
 import Footer from "./Footer";
 
 import "./App.css";
@@ -102,6 +103,7 @@ function App(){
 				setCloseTradeFormVisibility={setCloseTradeFormVisibility}
 				setTradeData={setTradeData}
 			/>
+			<Background/>
 			<Footer />
 		</div>
 	);
