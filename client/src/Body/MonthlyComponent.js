@@ -2,14 +2,31 @@ import React from "react";
 import ExpiryComponent from "./ExpiryComponent";
 
 const MonthlyComponent = (props) => {
+	const data = props.data;
+	const year = props.year;
+	const month = props.month;
+
+	//calculate monthly profit
+	const dates = Object.keys(data[year][month]);
+	const flattenedMonthlyData = dates.reduce((acc, date) => {
+		acc.push(...data[year][month][date])
+		return acc
+	}, [])
+
+	const totalProfit = flattenedMonthlyData.reduce((acc, elem) => {
+		let p;
+		elem.closingData.profit ? p = elem.closingData.profit : p = 0;
+		return acc + p;
+	}, 0);
+
 
 	return (
 		<div className="monthly">
-			<h3 className="total-profit">Total Profit</h3>
+			<h3 className="total-profit">{`Total Profit ${totalProfit}`}</h3>
 			<ExpiryComponent
-				month={props.month}
-				year={props.year}
-				data={props.data}
+				month={month}
+				year={year}
+				data={data}
 				handleDelete={props.handleDelete}
 				setModalVisibility={props.setModalVisibility}
 				setEditFormVisibility={props.setEditFormVisibility}

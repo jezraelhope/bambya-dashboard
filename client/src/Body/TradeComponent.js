@@ -6,11 +6,6 @@ const TradeComponent = (props) => {
 	const data = props.data
 	const trades = data[props.month][props.date];
 
-	const profits = trades.reduce((acc, trade) => {
-		return acc + trade.closingData.profit
-	}, 0)
-
-	console.log(profits)
 
 	return (
 		<div className="trade-table">
@@ -40,7 +35,7 @@ const TradeComponent = (props) => {
 							<td>{trade.openPrice}</td>
 							<td>{trade.closingData.closePrice}</td>
 							<td>data to be fetched</td>
-							<td>{trade.closingData.profit ? trade.closingData.profit : "Not available"}</td>
+							<td>{trade.closingData.profit ? trade.closingData.profit : "Not Available"}</td>
 							<td>{trade.comments}</td>
 							<td>
 								<ModalMenu
