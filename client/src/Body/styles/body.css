@@ -4,7 +4,8 @@
 	align-items: center;
 	text-align: center;
 	justify-content: space-between;
-	margin:0 auto;
+	margin:0 auto 2em auto;
+
 	width: 100%;
 	min-height: 100vh;
 	color: #25C99E;
