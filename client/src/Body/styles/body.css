@@ -6,6 +6,7 @@
 	justify-content: space-between;
 	margin:0 auto;
 	width: 100%;
+	min-height: 100vh;
 	color: #25C99E;
 }
 

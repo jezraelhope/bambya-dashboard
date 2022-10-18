@@ -1,10 +1,13 @@
 import React from "react";
-// import TestData from "../data/data";
+import "./styles/footer.css";
 
 
 const Footer = () => {
-	return <div className="footer-container">
-	</div>
+	return <footer className="footer-container">
+		<p className="footer-content">
+			created by Jezrael Hope Magat for bambya
+		</p>
+	</footer>
 };
 
 export default Footer;

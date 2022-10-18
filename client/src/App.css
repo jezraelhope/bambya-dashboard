@@ -3,9 +3,15 @@
 body {
 	background-color: #030224;
 	font-family: 'Titillium Web', sans-serif;
+	margin: 0;
+	padding: 0;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column
 }
 
 .App {
 	padding: 2em;
 	color: aliceblue;
+	flex-grow: 1
 }

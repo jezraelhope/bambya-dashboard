@@ -14,9 +14,8 @@ const MonthlyComponent = (props) => {
 	}, [])
 
 	const totalProfit = flattenedMonthlyData.reduce((acc, elem) => {
-		let p;
-		elem.closingData.profit ? p = elem.closingData.profit : p = 0;
-		return acc + p;
+		acc = acc + (elem.closingData.profit || 0);
+		return acc
 	}, 0);
 
 
