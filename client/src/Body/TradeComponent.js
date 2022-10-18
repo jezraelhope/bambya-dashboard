@@ -7,7 +7,7 @@ const TradeComponent = (props) => {
 	const trades = data[props.month][props.date];
 
 	const profits = trades.reduce((acc, trade) => {
-		return acc.closingData.profit + trade.closingData.profit
+		return acc + trade.closingData.profit
 	}, 0)
 
 	console.log(profits)

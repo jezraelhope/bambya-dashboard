@@ -19,22 +19,22 @@ function App(){
 	const [closeTradeFormVisibility, setCloseTradeFormVisibility] = useState('hide-close-trade-form')
 	const [tradeData, setTradeData] = useState({});
 
-	//deleting trade
+	// //deleting trade
 	
-	const handleDelete = async (id) => {
-		if (window.confirm('Are you sure you want to delete?')) {
-			const deleteResult = await fetch(`/trades/${id}`, {
-				method: 'DELETE',
-				headers: {
-					'content-type': 'application/json',
-				},
-				body: JSON.stringify(),
-			});
-			console.log("deleted!", deleteResult)
-		} else {
-			console.log('cancel');
-		}
-	};
+	// const handleDelete = async (id) => {
+	// 	if (window.confirm('Are you sure you want to delete?')) {
+	// 		const deleteResult = await fetch(`/trades/${id}`, {
+	// 			method: 'DELETE',
+	// 			headers: {
+	// 				'content-type': 'application/json',
+	// 			},
+	// 			body: JSON.stringify(),
+	// 		});
+	// 		console.log("deleted!", deleteResult)
+	// 	} else {
+	// 		console.log('cancel');
+	// 	}
+	// };
 
 	//fetching data from api
 	const fetchedData = async () => {
@@ -92,7 +92,7 @@ function App(){
 				years={years}
 			/>
 			<Body
-				handleDelete={handleDelete}
+				// handleDelete={handleDelete}
 				yearSelected={yearSelected}
 				monthToShow={monthToShow}
 				data={data}
