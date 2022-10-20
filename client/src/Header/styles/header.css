@@ -114,6 +114,7 @@
 
 
 /* months container */
+
 .months-not-shown {
 	display: none;
 }
@@ -168,6 +169,7 @@
 	color: inherit;
 	outline: inherit;
 	margin-right: .7rem;
+	filter: invert(20%) sepia(85%) saturate(3687%) hue-rotate(323deg) brightness(78%) contrast(110%);
 }
 
 .show-form {
@@ -176,10 +178,11 @@
 	position: absolute;
 	right: 20px;
 	width: 20em;
-	background-color: #C4C4C4;
-	color: black;
+	background-color: #141823;
+	color: aliceblue;
 	height: 80vh;
 	padding: 1em;
+	z-index: 1;
 }
 
 .button-container {
