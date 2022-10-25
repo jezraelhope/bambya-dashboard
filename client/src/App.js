@@ -19,7 +19,7 @@ function App(){
 	const [editFormVisibility, setEditFormVisibility] = useState('hide-edit-trade-form')
 	const [closeTradeFormVisibility, setCloseTradeFormVisibility] = useState('hide-close-trade-form')
 	const [tradeData, setTradeData] = useState({});
-
+	const [hideAllMenus, setHideAllMenus] = useState("hide")
 	// //deleting trade
 	
 	// const handleDelete = async (id) => {
@@ -37,6 +37,9 @@ function App(){
 	// 	}
 	// };
 
+	const handleAllMenus = () => {
+		setHideAllMenus("hide");
+	}
 	//fetching data from api
 	const fetchedData = async () => {
 		try {
@@ -63,7 +66,7 @@ function App(){
 	}
 	
 	return (
-		<div className="App">
+		<div className="App" onClick={() => handleAllMenus()}>
 			<div className={modalVisibility}>
 				<EditTradeModal
 					tradeData={tradeData}
@@ -91,6 +94,8 @@ function App(){
 				setYearSelected={setYearSelected}
 				yearSelected={yearSelected}
 				years={years}
+				hideAllMenus={hideAllMenus}
+				setHideAllMenus={setHideAllMenus}
 			/>
 			<Body
 				// handleDelete={handleDelete}

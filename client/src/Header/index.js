@@ -17,6 +17,7 @@ const Header = (props) => {
 			<Hamburger
 				toggleMenu={toggleMenu}
 				setToggleMenu={setToggleMenu}
+				setHideAllMenus={props?.setHideAllMenus}
 			/>
 			<SideMenu
 				data={props.data}
@@ -27,6 +28,8 @@ const Header = (props) => {
 				yearSelected={props.yearSelected}
 				toggleMenu={toggleMenu}
 				setToggleMenu={setToggleMenu}
+				hideAllMenus={props?.hideAllMenus}
+				setHideAllMenus={props?.setHideAllMenus}
 			/>
 			<Title />
 			<AddTrade

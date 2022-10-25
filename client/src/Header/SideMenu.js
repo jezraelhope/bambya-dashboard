@@ -29,6 +29,7 @@ const Menu = (props) => {
 	//builder functions
 	const handleChange = () => {
 		props.setToggleMenu("hide");
+		props.setHideAllMenus("hide");
 	};
 
 	const handleYearChange = (e) => {
@@ -38,8 +39,9 @@ const Menu = (props) => {
 		setMonthsMap({});
 	};
 
+	const sidemenuClass = props?.hideAllMenus === "hide" ? "hide": props.toggleMenu;
 	return (
-		<div className={props.toggleMenu}>
+		<div className={sidemenuClass} onClick={(e) => e.stopPropagation()}>
 			<section>
 				<div className="sidemenu-button-container">
 					<button className="close-menu-button" onClick={handleChange}>

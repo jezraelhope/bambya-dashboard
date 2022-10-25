@@ -43,7 +43,7 @@ const AddTradeForm = (props) => {
     const handleChange = () => {
 		props.setToggleAddTrade("hide");
 	};
-
+ // can you
     
     return(
         <section className={props.toggleAddTrade}>
