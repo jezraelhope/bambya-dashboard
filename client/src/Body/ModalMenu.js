@@ -51,7 +51,7 @@ const Modal = (props) => {
 	};
 
     return(
-        <div className="edit-delete-close-button-container">
+        <div className="edit-delete-close-button-container" onClick={(e) => e.stopPropagation()}>
             <button className="edit-delete-close-button" onClick={toggleModal}>
                 <img src={threeDots} alt="threedots" className="icon three-dots"/>
             </button>

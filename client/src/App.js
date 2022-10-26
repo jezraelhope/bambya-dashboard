@@ -19,7 +19,7 @@ function App(){
 	const [editFormVisibility, setEditFormVisibility] = useState('hide-edit-trade-form')
 	const [closeTradeFormVisibility, setCloseTradeFormVisibility] = useState('hide-close-trade-form')
 	const [tradeData, setTradeData] = useState({});
-	const [hideAllMenus, setHideAllMenus] = useState("hide")
+	const [hideAllMenus, setHideAllMenus] = useState({})
 	// //deleting trade
 	
 	// const handleDelete = async (id) => {
@@ -38,7 +38,7 @@ function App(){
 	// };
 
 	const handleAllMenus = () => {
-		setHideAllMenus("hide");
+		setHideAllMenus({hamburger:"hide", addTrade: "hide"});
 	}
 	//fetching data from api
 	const fetchedData = async () => {

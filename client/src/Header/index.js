@@ -33,10 +33,13 @@ const Header = (props) => {
 			/>
 			<Title />
 			<AddTrade
+				setHideAllMenus={props?.setHideAllMenus}
 				toggleAddTrade={toggleAddTrade}
 				setToggleAddTrade={setToggleAddTrade}
 			/>
 			<AddTradeForm
+				hideAllMenus={props?.hideAllMenus}
+				setHideAllMenus={props?.setHideAllMenus}
 				setToggleAddTrade={setToggleAddTrade}
 				toggleAddTrade={toggleAddTrade}
 			/>

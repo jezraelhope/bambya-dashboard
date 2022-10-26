@@ -42,11 +42,13 @@ const AddTradeForm = (props) => {
 
     const handleChange = () => {
 		props.setToggleAddTrade("hide");
+        props.setHideAllMenus({addTrade: "hide"});
 	};
- // can you
-    
+
+    const sidemenuClass = props?.hideAllMenus.addTrade || "hide";
+
     return(
-        <section className={props.toggleAddTrade}>
+        <section className={sidemenuClass} onClick={(e) => e.stopPropagation()}>
             <div className="button-container">
                 <button className="close-form-button" onClick={handleChange}>
                     <img src={cancel} alt="cancel-button" />

@@ -3,7 +3,9 @@ import burger from "../assets/menu.svg";
 
 const Hamburger = (props) => {
 	const handleChange = () => {
-		props.setHideAllMenus("show");
+		props.setHideAllMenus(
+			{hamburger: "show"}
+		);
 		props.setToggleMenu("show");
 	};
 	return (
