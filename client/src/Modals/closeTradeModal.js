@@ -53,6 +53,7 @@ const CloseTradeModal = (props) => {
             console.log(err)
         }
 
+        props.setRefetch(true);
         e.target.reset();
         hideMainModal();
     }
