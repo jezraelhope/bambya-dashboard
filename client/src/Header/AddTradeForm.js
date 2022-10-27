@@ -17,11 +17,18 @@ const AddTradeForm = (props) => {
 
         e.preventDefault();
 
+        let spreadType = spreadTypeRef.current.value;
+        if(spreadType === "--Select Spread Type Below--") {
+            spreadType = ""
+        } else {
+            spreadType = spreadTypeRef.current.value;
+        }
+
         const formData = {
             expiryDate: expiryDateRef.current.value,
             symbol: symbolRef.current.value,
             contractsNumber: contractsNumberRef.current.value,
-            spreadType: spreadTypeRef.current.value,
+            spreadType,
             longStrike: longStrikeRef.current.value,
             shortStrike: shortStrikeRef.current.value,
             openPrice: openPriceRef.current.value,
@@ -83,7 +90,7 @@ const AddTradeForm = (props) => {
                     <div className="form-group">
                         <label htmlFor="spreadType">Spread Type</label>
                         <select ref={spreadTypeRef} id="spreadType">
-                            <option selected disabled>--Select Spread Type Below</option>
+                            <option selected disabled>--Select Spread Type Below--</option>
                             <option value="Bull Call">Bull Call</option>
                             <option value="Bear Put">Bear Put</option>
                         </select>
