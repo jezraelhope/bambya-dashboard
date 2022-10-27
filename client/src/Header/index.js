@@ -42,6 +42,9 @@ const Header = (props) => {
 				setHideAllMenus={props?.setHideAllMenus}
 				setToggleAddTrade={setToggleAddTrade}
 				toggleAddTrade={toggleAddTrade}
+				fetchedData={props.fetchedData}
+				refetch={props.refetch}
+				setRefetch={props.setRefetch}
 			/>
 		</header>
 	);
