@@ -20,6 +20,7 @@ function App(){
 	const [closeTradeFormVisibility, setCloseTradeFormVisibility] = useState('hide-close-trade-form')
 	const [tradeData, setTradeData] = useState({});
 	const [hideAllMenus, setHideAllMenus] = useState({})
+	const [refetch, setRefetch] = useState(false)
 	// //deleting trade
 	
 	// const handleDelete = async (id) => {
@@ -53,8 +54,9 @@ function App(){
 	useEffect(async () => {
 		const fetched = await fetchedData()
 		setData(fetched);
-		setYears(Object.keys(fetched))
-	}, [])
+		setYears(Object.keys(fetched));
+		setRefetch(false);
+	}, [refetch])
 
 
 	//toggle Main Modal
@@ -76,6 +78,8 @@ function App(){
 					toggleMainModal={toggleMainModal}
 					editFormVisibility={editFormVisibility}
 					setEditFormVisibility={setEditFormVisibility}
+					refetch={refetch}
+					setRefetch={setRefetch}
 				/>
 				<CloseTradeModal
 					tradeData={tradeData}
@@ -85,6 +89,8 @@ function App(){
 					toggleMainModal={toggleMainModal}
 					closeTradeFormVisibility={closeTradeFormVisibility}
 					setCloseTradeFormVisibility={setCloseTradeFormVisibility}
+					refetch={refetch}
+					setRefetch={setRefetch}
 				/>
 			</div>
 			<Header
@@ -96,6 +102,9 @@ function App(){
 				years={years}
 				hideAllMenus={hideAllMenus}
 				setHideAllMenus={setHideAllMenus}
+				fetchedData={fetchedData}
+				refetch={refetch}
+				setRefetch={setRefetch}
 			/>
 			<Body
 				// handleDelete={handleDelete}
