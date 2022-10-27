@@ -44,7 +44,8 @@ const Modal = (props) => {
 				body: JSON.stringify(),
 			});
 			console.log("deleted!", deleteResult)
-            toggleModal()
+            toggleModal();
+            props.setRefetch(true);
 		} else {
 			console.log('cancel');
 		}

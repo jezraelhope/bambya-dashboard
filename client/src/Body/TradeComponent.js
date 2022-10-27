@@ -46,6 +46,7 @@ const TradeComponent = (props) => {
 									setTradeData={props.setTradeData}
 									trade={trade}
 									tradeId={trade.id}
+									setRefetch={props.setRefetch}
 								/>
 							</td>
 						</tr>

@@ -78,7 +78,6 @@ function App(){
 					toggleMainModal={toggleMainModal}
 					editFormVisibility={editFormVisibility}
 					setEditFormVisibility={setEditFormVisibility}
-					refetch={refetch}
 					setRefetch={setRefetch}
 				/>
 				<CloseTradeModal
@@ -89,7 +88,6 @@ function App(){
 					toggleMainModal={toggleMainModal}
 					closeTradeFormVisibility={closeTradeFormVisibility}
 					setCloseTradeFormVisibility={setCloseTradeFormVisibility}
-					refetch={refetch}
 					setRefetch={setRefetch}
 				/>
 			</div>
@@ -116,6 +114,7 @@ function App(){
 				setEditFormVisibility={setEditFormVisibility}
 				setCloseTradeFormVisibility={setCloseTradeFormVisibility}
 				setTradeData={setTradeData}
+				setRefetch={setRefetch}
 			/>
 			<Background/>
 			<Footer />

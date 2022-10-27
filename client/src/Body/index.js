@@ -26,6 +26,7 @@ const Body = (props) => {
 							setEditFormVisibility={props.setEditFormVisibility}
 							setCloseTradeFormVisibility={props.setCloseTradeFormVisibility}
 							setTradeData={props.setTradeData}
+							setRefetch={props.setRefetch}
 						/>
 					</main>
 				);
