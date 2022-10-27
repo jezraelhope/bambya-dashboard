@@ -56,6 +56,7 @@ function App(){
 		setData(fetched);
 		setYears(Object.keys(fetched));
 		setRefetch(false);
+		console.log(fetched)
 	}, [refetch])
 
 

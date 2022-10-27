@@ -43,10 +43,10 @@ const AddTradeForm = (props) => {
             console.log("new data added", formData)
         })
 
-        props.fetchedData();
-        props.setRefetch(true);
         e.target.reset();
         props.setToggleAddTrade("hide");
+        props.setHideAllMenus({addTrade: "hide"});
+        props.setRefetch(true);
     }
 
     const handleChange = () => {
