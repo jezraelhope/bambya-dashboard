@@ -8,11 +8,11 @@
     flex-direction: row;
     justify-content: center;
     width: 100%;
+    z-index: -1;
 }
 
 .bull {
     filter: invert(91%) sepia(84%) saturate(7225%) hue-rotate(83deg) brightness(10%) contrast(73%);
     height: 200px;
     position: absolute;
-    z-index: -1;
 }
