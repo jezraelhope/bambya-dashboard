@@ -7,7 +7,7 @@ const MonthlyComponent = (props) => {
 	const month = props.month;
 
 	//calculate monthly profit
-	const dates = Object.keys(data[year][month]);
+	const dates = Object.keys(data[year][month] || {});
 	const flattenedMonthlyData = dates.reduce((acc, date) => {
 		acc.push(...data[year][month][date])
 		return acc
