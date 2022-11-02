@@ -45,16 +45,13 @@ router.get("/", async (req, res) => {
         const trades = await Trade.find().exec();
         const refactoredTrades = trades.reduce((acc, trade) => {
             const d = new Date(trade.expiryDate)
-            let year = null;
-            let month = null;
-            let day= null;
-
-            if(!!d.valueOf) {
-                year =  d.getFullYear();
-                month = d.getMonth()+1;
-                day = d.getDate()+1;
-            }    
+           
+            year =  d.getUTCFullYear();
+            month = d.getUTCMonth()+1;
+            day = d.getUTCDate();
+        
             
+
             if(!acc[year]) {
                 acc[year] = {};
             }
