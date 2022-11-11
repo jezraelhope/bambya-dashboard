@@ -1,5 +1,6 @@
+# Wheel Strategy Dashboard
 
-[Wheel Strategy Dashboard](https://wheel-strategy-dashboard.onrender.com/)
+[Click to view live](https://wheel-strategy-dashboard.onrender.com/)
 
 ## Description
 This dashboard was created for a friend who uses options wheel strategy for his trades. It features a main page that shows his trades that are segregated by month and a table that separates trades according to expiration date. It also has a side menu to filter out trades according to year and months. To add trades, a form was added on the right hand side which creates a post request to the node API that handles all database calls. Each trade is also editable and can be deleted if chosen.
