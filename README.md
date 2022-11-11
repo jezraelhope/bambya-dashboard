@@ -37,3 +37,4 @@ I had so much fun creating this project and learned so much about the backend si
 - Better understanding of the useEffect hook
 - Basic understanding of backend technologies such as nodejs, express and mongoose
 - Basic understanding of Mongodb
+- I've learned that dates as a data type are quite tricky to manipulate which required me to research more about date methods
