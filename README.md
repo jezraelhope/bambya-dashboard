@@ -33,6 +33,7 @@ I had so much fun creating this project and learned so much about the backend si
 - Better UX/UI
 
 ## Things I Learned While Building This Project
+- Connecting Frontend to the Backend
 - Better understanding of the fetch API
 - Better understanding of the useEffect hook
 - Basic understanding of backend technologies such as nodejs, express and mongoose
