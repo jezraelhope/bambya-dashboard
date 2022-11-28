@@ -5,7 +5,7 @@
 ## Description
 This dashboard was created for a friend who uses options wheel strategy for his trades. It features a main page that shows his trades that are segregated by month and a table that separates trades according to expiration date. It also has a side menu to filter out trades according to year and months. To add trades, a form was added on the right hand side which creates a post request to the node API that handles all database calls. Each trade is also editable and can be deleted if chosen.
 
-I had so much fun creating this project and learned so much about the backend side of web development. I am aware that there are so many gaps in my knowledge but I will continue building projects to increase my proficiency in all of these technologies.
+I had so much fun creating this project and learned so much about the backend side of web development. I still want to improve upon this project and add more features such as authentication, a main page for first time visitors and data visualization to show charts and other important data for the user.
 
 ## Technologies Used
 - CSS
