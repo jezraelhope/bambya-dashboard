@@ -8,7 +8,7 @@ const app = express();
 const mongoose = require("mongoose");
 const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
-const expressSession = require("express-session");
+// const expressSession = require("express-session");
 
 //Config Import
 const config = require("./config");
@@ -41,22 +41,22 @@ app.use(
 	})
 );
 
-//Express Session Config
+// //Express Session Config
 
-app.use(
-	expressSession({
-		secret: "jdshfjdhldmfsdjfksdhjfkdssdfksdj sdofjp[ioie -394r sdfy989y3q dfh8ye",
-		resave: false,
-		saveUninitialized: false,
-	})
-);
+// app.use(
+// 	expressSession({
+// 		secret: "jdshfjdhldmfsdjfksdhjfkdssdfksdj sdofjp[ioie -394r sdfy989y3q dfh8ye",
+// 		resave: false,
+// 		saveUninitialized: false,
+// 	})
+// );
 
-//Passport config
-app.use(passport.initialize());
-app.use(passport.session());
-passport.serializeUser(User.serializeUser());
-passport.deserializeUser(User.deserializeUser());
-passport.use(new LocalStrategy(User.authenticate()));
+// //Passport config
+// app.use(passport.initialize());
+// app.use(passport.session());
+// passport.serializeUser(User.serializeUser());
+// passport.deserializeUser(User.deserializeUser());
+// passport.use(new LocalStrategy(User.authenticate()));
 
 //Route Config
 //app.use("/", mainRoutes)
