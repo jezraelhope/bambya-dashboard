@@ -1,0 +1,242 @@
+/* Reset CSS */
+
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+    display: block;
+}
+body {
+    line-height: 1;
+}
+ol,
+ul {
+    list-style: none;
+}
+blockquote,
+q {
+    quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+    content: '';
+    content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/* Variables */
+:root {
+    --spacing-xl: 4rem;
+    --spacing-lg: 3rem;
+    --spacing-md: 2rem;
+    --spacing-small: 1rem;
+    --spacing-xsmall: 0.5rem;
+    --font-size-xl: 6rem;
+    --font-size-lg: 4rem;
+    --font-size-md: 2rem;
+    --font-size-small: 1rem;
+    --base-color-1: #030224;
+    --base-color-2: #25c99e;
+    --base-color-3: #ffffff;
+}
+
+/* App CSS */
+.landing-page {
+    width: 100%;
+    height: 100%;
+    display: block;
+    color: var(--base-color-3);
+    background-color: var(--base-color-1);
+}
+
+section {
+    display: block;
+    margin-bottom: var(--spacing-xl);
+    padding: var(--spacing-md);
+}
+
+section h2 {
+    font-size: var(--font-size-md);
+}
+
+/* Header */
+.landing-header {
+    margin-bottom: var(--spacing-xl);
+}
+
+.landing-header nav {
+    display: flex;
+    justify-content: end;
+}
+
+.landing-header nav li {
+    list-style: none;
+    padding: var(--spacing-small);
+}
+
+.landing-header nav a {
+    text-decoration: none;
+    padding: var(--spacing-small);
+}
+
+/* landing logo */
+.landing-logo {
+    display: block;
+}
+.landing-logo h1 {
+    font-size: var(--font-size-xl);
+}
+.landing-logo span {
+    color: var(--base-color-2);
+}
+
+/* landing steps */
+
+.landing-steps {
+    text-align: center;
+}
+.landing-steps-container {
+    display: flex;
+    flex-direction: column;
+}
+.landing-steps--visual {
+    padding: var(--spacing-small);
+    display: flex;
+    align-items: center;
+}
+.landing-steps--visual .visual-number {
+    font-size: var(--font-size-lg);
+    color: var(--base-color-2);
+}
+.landing-steps--visual .visual-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: var(--spacing-small);
+    text-align: left;
+}
+.landing-steps--visual .visual-info--heading {
+    font-size: var(--font-size-md);
+    margin-bottom: var(--spacing-xsmall);
+}
+
+/* Landing More Info */
+
+.landing-more-info {
+    text-align: left;
+}
+
+/* Landing visit app */
+.landing-visit-app {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

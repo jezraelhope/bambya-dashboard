@@ -8,6 +8,7 @@ import Background from "./Background";
 import Footer from "./Footer";
 
 import "./App.css";
+import LandingPage from "./LandingPage";
 
 
 function App(){
@@ -68,7 +69,8 @@ function App(){
 	}
 	
 	return (
-		<div className="App" onClick={() => handleAllMenus()}>
+		window.location.pathname === "/" ? (<LandingPage />) :
+		<div className="App purple-theme" onClick={() => handleAllMenus()}>
 			<div className={modalVisibility}>
 				<EditTradeModal
 					tradeData={tradeData}
