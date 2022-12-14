@@ -1,5 +1,6 @@
 import React from 'react'
 import './landingPage.css'
+import wsdbImage from '../assets/wsdb.png'
 function LandingPage() {
     return (
         <div className="landing-page">
@@ -80,11 +81,11 @@ function LandingPage() {
             </section>
             <section className="landing-visit-app">
                 <h2>How Wheel Strategy Dashboard Helps</h2>
-                <img src="" alt="wheel strategy website image" />
+                <img src={wsdbImage} alt="wheel strategy website image" />
                 <p>View your trades in our state-of-the-art dashboard</p>
-                <button className="landing-visit-app--button">
+                <a href="/trades" className="landing-visit-app--button">
                     Try our website for free
-                </button>
+                </a>
             </section>
             <footer>Copyright 2022</footer>
         </div>
