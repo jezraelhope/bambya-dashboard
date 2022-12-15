@@ -11,8 +11,14 @@ body {
     padding: 0;
     border: 0;
     font-size: 100%;
-    font: inherit;
+    font-family: 'Titillium Web', Times, serif;
     vertical-align: baseline;
+}
+h1,
+h2,
+h3,
+h4 {
+    margin: 0;
 }
 
 /* Variables */
@@ -30,6 +36,7 @@ body {
     --base-color-1: #030224;
     --base-color-2: #25c99e;
     --base-color-3: #ffffff;
+    --border-radius: 22px;
 }
 
 /* App CSS */
@@ -72,6 +79,10 @@ section h2 {
     list-style: none;
     padding: var(--spacing-small);
 }
+.landing-header nav li:hover {
+    background-color: var(--base-color-1);
+    border-radius: 22px;
+}
 
 .landing-header nav a {
     text-decoration: none;
@@ -107,9 +118,7 @@ section h2 {
     color: var(--base-color-3);
     padding: var(--spacing-small);
     background: var(--base-color-2);
-    border-radius: 50%;
-    width: var(--spacing-xl);
-    height: var(--spacing-xl);
+    border-radius: var(--border-radius);
     font-weight: bold;
     display: flex;
     align-items: center;
@@ -133,12 +142,19 @@ section h2 {
     display: flex;
     flex-direction: column;
     margin: 0 auto;
-    width: 60vw;
+    width: 70vw;
 }
 .landing-steps--visual {
-    padding: var(--spacing-small);
     display: flex;
     align-items: center;
+    margin-bottom: var(--spacing-md);
+}
+.landing-steps--visual:last-child {
+    margin-bottom: 0;
+}
+
+.landing-steps--visual .visual-info--more-info {
+    margin: 0;
 }
 .landing-steps--visual .visual-number {
     font-size: var(--font-size-lg);
@@ -148,7 +164,7 @@ section h2 {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding: var(--spacing-small);
+    padding: 0 var(--spacing-small);
     text-align: left;
 }
 .landing-steps--visual .visual-info--heading {
@@ -179,10 +195,13 @@ section h2 {
     font-size: var(--font-size-small);
 }
 .landing-visit-app .landing-visit-app--button {
-    font-size: var(--font-size-small);
     text-decoration: none;
     padding: var(--spacing-small);
     color: var(--base-color-3);
     background-color: var(--base-color-2);
-    border-radius: 2px;
+    border-radius: var(--border-radius);
+}
+.landing-visit-app .landing-visit-app--button:hover {
+    color: var(--base-color-1);
+    background: var(--base-color-3);
 }

@@ -79,7 +79,7 @@ function LandingPage() {
                     low risk.
                 </p>
             </section>
-            <section className="landing-visit-app">
+            <section className="landing-visit-app" id="WSDB">
                 <h2>How Wheel Strategy Dashboard Helps</h2>
                 <img src={wsdbImage} alt="wheel strategy website image" />
                 <p>View your trades in our state-of-the-art dashboard</p>
@@ -87,7 +87,33 @@ function LandingPage() {
                     Try our website for free
                 </a>
             </section>
-            <footer>Copyright 2022</footer>
+            <footer className="footer">
+                <div className="footer-content divz">
+                    <div className="contact-container">
+                        <p className="footer-header">Contact</p>
+                        <div className="contact-details">
+                            <p>+1 (312) 563 7696</p>
+                            <p>thereceptionist@nzm.com</p>
+                            <p>4255 N. Marine Dr.</p>
+                            <p>Chicago, Il.</p>
+                            <p>60100</p>
+                        </div>
+                    </div>
+                    <div className="quick-links divz">
+                        <p className="footer-header">Quick Links</p>
+                        <div className="footer-links">
+                            <a href="https://www.privacypolicygenerator.info/live.php?token=oJoRuGqZZDYntGQ7MJuZXspZ26Nfp2Zf">
+                                Terms & Privacy Policy
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div className="website-info">
+                    <p className="footer-footer">
+                        website created by Jezrael Hope Magat
+                    </p>
+                </div>
+            </footer>
         </div>
     )
 }
