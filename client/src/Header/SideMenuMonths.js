@@ -1,33 +1,31 @@
-import React, {useState, useEffect} from "react";
+import React, { useEffect } from 'react'
 
-import add from "../assets/add.svg";
-import minus from "../assets/minus.svg";
+import add from '../assets/add.svg'
+import minus from '../assets/minus.svg'
 
 const SideMenuMonths = (props) => {
-    const data = props.data;
-    const monthsMap = props.monthsMap;
-    const setMonthsMap = props.setMonthsMap;
-    const showMonthsContainer = props.showMonthsContainer;
-    const yearSelected = props.yearSelected;
+    const data = props.data
+    const monthsMap = props.monthsMap
+    const setMonthsMap = props.setMonthsMap
+    const showMonthsContainer = props.showMonthsContainer
+    const yearSelected = props.yearSelected
     const monthToShow = props.monthToShow
-    const setMonthToShow = props.setMonthToShow;
+    const setMonthToShow = props.setMonthToShow
     const months = Object.keys(data[yearSelected] || {})
-   
 
     useEffect(() => {
         const enabledMonths = Object.keys(monthsMap || []).filter(
             (elem) => monthsMap[elem]
-        );
-        setMonthToShow((prevValue) => [...enabledMonths]);
-    }, [monthsMap, setMonthToShow]);
-    
+        )
+        setMonthToShow((prevValue) => [...enabledMonths])
+    }, [monthsMap, setMonthToShow])
 
     const handleCheckboxChange = (e) => {
-		setMonthsMap((prevValue) => ({
-			...prevValue,
-			[e.target.id]: !monthsMap[e.target.id]
-		}));
-	};
+        setMonthsMap((prevValue) => ({
+            ...prevValue,
+            [e.target.id]: !monthsMap[e.target.id],
+        }))
+    }
 
     return (
         <div className={`${showMonthsContainer} months-container`}>
@@ -49,16 +47,13 @@ const SideMenuMonths = (props) => {
                                 src={monthToShow.includes(month) ? minus : add}
                                 alt="toggle-month"
                                 className="add-month-icon"
-                                />
+                            />
                         </label>
                     </div>
-                );
+                )
             })}
         </div>
     )
-
-
-
 }
 
 export default SideMenuMonths

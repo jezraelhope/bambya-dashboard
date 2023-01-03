@@ -6,8 +6,6 @@ import EditTradeModal from './Modals/EditTradeModal'
 import CloseTradeModal from './Modals/CloseTradeModal'
 import Background from './Background'
 import Footer from './Footer'
-import LandingPage from './LandingPage'
-
 import './App.css'
 
 function App() {
@@ -27,7 +25,11 @@ function App() {
     const [refetch, setRefetch] = useState(false)
 
     const handleAllMenus = () => {
-        setHideAllMenus({ hamburger: 'hide', addTrade: 'hide' })
+        setHideAllMenus({
+            hamburger: 'hide',
+            addTrade: 'hide',
+            popOver: 'hide',
+        })
     }
     //fetching data from api
     const fetchedData = async () => {
@@ -63,66 +65,61 @@ function App() {
                 : 'hide-edit-trade-form'
         )
     }
-
-    if (window.location.pathname === '/') {
-        return <LandingPage />
-    } else if (window.location.pathname === '/wsdb') {
-        return (
-            <div className="App purple-theme" onClick={() => handleAllMenus()}>
-                <div className={modalVisibility}>
-                    <EditTradeModal
-                        tradeData={tradeData}
-                        setTradeData={setTradeData}
-                        modalVisibility={modalVisibility}
-                        setModalVisibility={setModalVisibility}
-                        toggleMainModal={toggleMainModal}
-                        editFormVisibility={editFormVisibility}
-                        setEditFormVisibility={setEditFormVisibility}
-                        setRefetch={setRefetch}
-                    />
-                    <CloseTradeModal
-                        tradeData={tradeData}
-                        setTradeData={setTradeData}
-                        modalVisibility={modalVisibility}
-                        setModalVisibility={setModalVisibility}
-                        toggleMainModal={toggleMainModal}
-                        closeTradeFormVisibility={closeTradeFormVisibility}
-                        setCloseTradeFormVisibility={
-                            setCloseTradeFormVisibility
-                        }
-                        setRefetch={setRefetch}
-                    />
-                </div>
-                <Header
-                    data={data}
-                    monthToShow={monthToShow}
-                    setMonthToShow={setMonthToShow}
-                    setYearSelected={setYearSelected}
-                    yearSelected={yearSelected}
-                    years={years}
-                    hideAllMenus={hideAllMenus}
-                    setHideAllMenus={setHideAllMenus}
-                    fetchedData={fetchedData}
-                    refetch={refetch}
-                    setRefetch={setRefetch}
-                />
-                <Body
-                    // handleDelete={handleDelete}
-                    yearSelected={yearSelected}
-                    monthToShow={monthToShow}
-                    data={data}
-                    years={years}
-                    setModalVisibility={setModalVisibility}
-                    setEditFormVisibility={setEditFormVisibility}
-                    setCloseTradeFormVisibility={setCloseTradeFormVisibility}
+    return (
+        <div className="App purple-theme" onClick={() => handleAllMenus()}>
+            <div className={modalVisibility}>
+                <EditTradeModal
+                    tradeData={tradeData}
                     setTradeData={setTradeData}
+                    modalVisibility={modalVisibility}
+                    setModalVisibility={setModalVisibility}
+                    toggleMainModal={toggleMainModal}
+                    editFormVisibility={editFormVisibility}
+                    setEditFormVisibility={setEditFormVisibility}
                     setRefetch={setRefetch}
                 />
-                <Background />
-                <Footer />
+                <CloseTradeModal
+                    tradeData={tradeData}
+                    setTradeData={setTradeData}
+                    modalVisibility={modalVisibility}
+                    setModalVisibility={setModalVisibility}
+                    toggleMainModal={toggleMainModal}
+                    closeTradeFormVisibility={closeTradeFormVisibility}
+                    setCloseTradeFormVisibility={setCloseTradeFormVisibility}
+                    setRefetch={setRefetch}
+                />
             </div>
-        )
-    }
+            <Header
+                data={data}
+                monthToShow={monthToShow}
+                setMonthToShow={setMonthToShow}
+                setYearSelected={setYearSelected}
+                yearSelected={yearSelected}
+                years={years}
+                hideAllMenus={hideAllMenus}
+                setHideAllMenus={setHideAllMenus}
+                fetchedData={fetchedData}
+                refetch={refetch}
+                setRefetch={setRefetch}
+            />
+            <Body
+                // handleDelete={handleDelete}
+                yearSelected={yearSelected}
+                monthToShow={monthToShow}
+                hideAllMenus={hideAllMenus}
+                setHideAllMenus={setHideAllMenus}
+                data={data}
+                years={years}
+                setModalVisibility={setModalVisibility}
+                setEditFormVisibility={setEditFormVisibility}
+                setCloseTradeFormVisibility={setCloseTradeFormVisibility}
+                setTradeData={setTradeData}
+                setRefetch={setRefetch}
+            />
+            <Background />
+            <Footer />
+        </div>
+    )
 }
 
 export default App
