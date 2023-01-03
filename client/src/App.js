@@ -6,9 +6,9 @@ import EditTradeModal from './Modals/EditTradeModal'
 import CloseTradeModal from './Modals/CloseTradeModal'
 import Background from './Background'
 import Footer from './Footer'
+import LandingPage from './LandingPage'
 
 import './App.css'
-import LandingPage from './LandingPage'
 
 function App() {
     const [monthToShow, setMonthToShow] = useState([])
@@ -64,61 +64,65 @@ function App() {
         )
     }
 
-    return window.location.pathname === '/' ? (
-        <LandingPage />
-    ) : (
-        <div className="App purple-theme" onClick={() => handleAllMenus()}>
-            <div className={modalVisibility}>
-                <EditTradeModal
-                    tradeData={tradeData}
-                    setTradeData={setTradeData}
-                    modalVisibility={modalVisibility}
+    if (window.location.pathname === '/') {
+        return <LandingPage />
+    } else if (window.location.pathname === '/wsdb') {
+        return (
+            <div className="App purple-theme" onClick={() => handleAllMenus()}>
+                <div className={modalVisibility}>
+                    <EditTradeModal
+                        tradeData={tradeData}
+                        setTradeData={setTradeData}
+                        modalVisibility={modalVisibility}
+                        setModalVisibility={setModalVisibility}
+                        toggleMainModal={toggleMainModal}
+                        editFormVisibility={editFormVisibility}
+                        setEditFormVisibility={setEditFormVisibility}
+                        setRefetch={setRefetch}
+                    />
+                    <CloseTradeModal
+                        tradeData={tradeData}
+                        setTradeData={setTradeData}
+                        modalVisibility={modalVisibility}
+                        setModalVisibility={setModalVisibility}
+                        toggleMainModal={toggleMainModal}
+                        closeTradeFormVisibility={closeTradeFormVisibility}
+                        setCloseTradeFormVisibility={
+                            setCloseTradeFormVisibility
+                        }
+                        setRefetch={setRefetch}
+                    />
+                </div>
+                <Header
+                    data={data}
+                    monthToShow={monthToShow}
+                    setMonthToShow={setMonthToShow}
+                    setYearSelected={setYearSelected}
+                    yearSelected={yearSelected}
+                    years={years}
+                    hideAllMenus={hideAllMenus}
+                    setHideAllMenus={setHideAllMenus}
+                    fetchedData={fetchedData}
+                    refetch={refetch}
+                    setRefetch={setRefetch}
+                />
+                <Body
+                    // handleDelete={handleDelete}
+                    yearSelected={yearSelected}
+                    monthToShow={monthToShow}
+                    data={data}
+                    years={years}
                     setModalVisibility={setModalVisibility}
-                    toggleMainModal={toggleMainModal}
-                    editFormVisibility={editFormVisibility}
                     setEditFormVisibility={setEditFormVisibility}
-                    setRefetch={setRefetch}
-                />
-                <CloseTradeModal
-                    tradeData={tradeData}
-                    setTradeData={setTradeData}
-                    modalVisibility={modalVisibility}
-                    setModalVisibility={setModalVisibility}
-                    toggleMainModal={toggleMainModal}
-                    closeTradeFormVisibility={closeTradeFormVisibility}
                     setCloseTradeFormVisibility={setCloseTradeFormVisibility}
+                    setTradeData={setTradeData}
                     setRefetch={setRefetch}
                 />
+                <Background />
+                <Footer />
             </div>
-            <Header
-                data={data}
-                monthToShow={monthToShow}
-                setMonthToShow={setMonthToShow}
-                setYearSelected={setYearSelected}
-                yearSelected={yearSelected}
-                years={years}
-                hideAllMenus={hideAllMenus}
-                setHideAllMenus={setHideAllMenus}
-                fetchedData={fetchedData}
-                refetch={refetch}
-                setRefetch={setRefetch}
-            />
-            <Body
-                // handleDelete={handleDelete}
-                yearSelected={yearSelected}
-                monthToShow={monthToShow}
-                data={data}
-                years={years}
-                setModalVisibility={setModalVisibility}
-                setEditFormVisibility={setEditFormVisibility}
-                setCloseTradeFormVisibility={setCloseTradeFormVisibility}
-                setTradeData={setTradeData}
-                setRefetch={setRefetch}
-            />
-            <Background />
-            <Footer />
-        </div>
-    )
+        )
+    }
 }
 
 export default App

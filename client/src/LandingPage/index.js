@@ -1,6 +1,7 @@
 import React from 'react'
 import './landingPage.css'
 import wsdbImage from '../assets/wsdb.png'
+
 function LandingPage() {
     return (
         <div className="landing-page">
@@ -27,7 +28,7 @@ function LandingPage() {
                 <div className="landing-logo--cta">
                     <p>Keep track and analyze your trades</p>
                     <div className="landing-logo--cta-links">
-                        <a href="/trades">WSDB</a>
+                        <a href="/wsdb">WSDB</a>
                         <a href="#learnMore">Learn More</a>
                     </div>
                 </div>
@@ -81,9 +82,9 @@ function LandingPage() {
             </section>
             <section className="landing-visit-app" id="WSDB">
                 <h2>How Wheel Strategy Dashboard Helps</h2>
-                <img src={wsdbImage} alt="wheel strategy website image" />
+                <img src={wsdbImage} alt="wheel strategy website screenshot" />
                 <p>View your trades in our state-of-the-art dashboard</p>
-                <a href="/trades" className="landing-visit-app--button">
+                <a href="/wsdb" className="landing-visit-app--button">
                     Try our website for free
                 </a>
             </section>
