@@ -90,19 +90,19 @@ const AddTradeForm = (props) => {
                     </div>
                     <div className="form-group">
                         <label htmlFor="longStrike">Long Strike</label>
-                        <input type="number" ref={longStrikeRef} />
+                        <input type="number" ref={longStrikeRef} step="any" />
                     </div>
                     <div className="form-group">
                         <label htmlFor="shortStrike">Short Strike</label>
-                        <input type="number" ref={shortStrikeRef} />
+                        <input type="number" ref={shortStrikeRef} step="any" />
                     </div>
                     <div className="form-group">
                         <label htmlFor="openPrice">Open Price</label>
-                        <input type="number" ref={openPriceRef} />
+                        <input type="number" ref={openPriceRef} step="any" />
                     </div>
                     <div className="form-group">
                         <label htmlFor="openComments">Open Comments</label>
-                        <input type="text" ref={openCommentsRef} />
+                        <input type="text" ref={openCommentsRef} step="any" />
                     </div>
                     <button className="form-button">Apply</button>
                 </form>
