@@ -75,9 +75,6 @@ const Modal = (props) => {
                     <button onClick={showMainModal}>Edit</button>
                     <button onClick={showCloseTradeForm}>Close</button>
                     <button onClick={handleDelete}>Delete</button>
-                    <button className="close-window" onClick={toggleModal}>
-                        close window
-                    </button>
                 </div>
             </div>
         </div>
