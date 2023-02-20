@@ -28,26 +28,27 @@ function App() {
         setHideAllMenus({
             hamburger: 'hide',
             addTrade: 'hide',
-            popOver: 'hide',
         })
     }
     //fetching data from api
-    const fetchedData = async () => {
+    const fetchData = async () => {
         try {
-            const data = await fetch('/trades')
-                .then((res) => res.json())
-                .then((data) => data)
+            const res = await fetch('/trades')
+            const data = await res.json()
             return data
         } catch (err) {
             console.log(err)
         }
     }
 
-    useEffect(async () => {
-        const fetched = await fetchedData()
-        setData(fetched)
-        setYears(Object.keys(fetched))
-        setRefetch(false)
+    useEffect(() => {
+        const fetchAndSetData = async () => {
+            const fetched = await fetchData()
+            setData(fetched)
+            setYears(Object.keys(fetched))
+            setRefetch(false)
+        }
+        fetchAndSetData()
     }, [refetch])
 
     //toggle Main Modal
@@ -98,7 +99,7 @@ function App() {
                 years={years}
                 hideAllMenus={hideAllMenus}
                 setHideAllMenus={setHideAllMenus}
-                fetchedData={fetchedData}
+                fetchedData={fetchData}
                 refetch={refetch}
                 setRefetch={setRefetch}
             />

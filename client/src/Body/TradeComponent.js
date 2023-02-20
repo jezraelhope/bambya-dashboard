@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import ModalMenu from './ModalMenu'
 
@@ -56,7 +56,6 @@ const TradeComponent = (props) => {
                                         }
                                         setTradeData={props.setTradeData}
                                         trade={trade}
-                                        tradeId={trade.id}
                                         setRefetch={props.setRefetch}
                                         hideAllMenus={props.hideAllMenus}
                                         setHideAllMenus={props.setHideAllMenus}

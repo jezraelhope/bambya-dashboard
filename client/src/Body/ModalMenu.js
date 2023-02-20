@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 
 import threeDots from '../assets/three-dots.svg'
+import cancel from '../assets/cancel.svg'
 
 const Modal = (props) => {
     const [showModal, setShowModal] = useState('hide-modal')
@@ -9,6 +10,7 @@ const Modal = (props) => {
     const setCloseTradeFormVisibility = props.setCloseTradeFormVisibility
     const setTradeData = props.setTradeData
     const trade = props.trade
+
     // const handleDelete = props.handleDelete
     const hidePopOver = props.hideAllMenus.popOver
 
@@ -72,6 +74,11 @@ const Modal = (props) => {
                 id="modal"
             >
                 <div className="actual-modal">
+                    <div className="close-window">
+                        <button className="close" onClick={toggleModal}>
+                            <img src={cancel} alt="" className="close" />
+                        </button>
+                    </div>
                     <button onClick={showMainModal}>Edit</button>
                     <button onClick={showCloseTradeForm}>Close</button>
                     <button onClick={handleDelete}>Delete</button>
