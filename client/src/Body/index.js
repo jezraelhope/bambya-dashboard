@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import MonthlyComponent from './MonthlyComponent'
 import './styles/body.css'
 
@@ -6,6 +6,12 @@ const Body = (props) => {
     const monthToShow = props.monthToShow
     const data = props.data
     const yearSelected = props.yearSelected
+
+    const [tradeView, setTradeView] = useState('all')
+
+    const changeTradeView = (e) => {
+        setTradeView(e.target.value)
+    }
 
     return (
         <main className="main-container">
@@ -15,9 +21,27 @@ const Body = (props) => {
 
             <div>
                 <div className="open-closed-filter-container">
-                    <button className="all-trades">all trades</button>
-                    <button className="open-trades">open trades</button>
-                    <button className="closedß-trades">closed trades</button>
+                    <button
+                        onClick={changeTradeView}
+                        className="all-trades trade-view-button"
+                        value="all"
+                    >
+                        all trades
+                    </button>
+                    <button
+                        onClick={changeTradeView}
+                        className="open-trades trade-view-button"
+                        value="open"
+                    >
+                        open trades
+                    </button>
+                    <button
+                        onClick={changeTradeView}
+                        className="closed-trades trade-view-button"
+                        value="closed"
+                    >
+                        closed trades
+                    </button>
                 </div>
                 {monthToShow.map((month) => {
                     return (
@@ -39,6 +63,7 @@ const Body = (props) => {
                                 }
                                 setTradeData={props.setTradeData}
                                 setRefetch={props.setRefetch}
+                                tradeView={tradeView}
                             />
                         </div>
                     )
