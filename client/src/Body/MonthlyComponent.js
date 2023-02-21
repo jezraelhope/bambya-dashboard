@@ -33,6 +33,7 @@ const MonthlyComponent = (props) => {
                 setRefetch={props.setRefetch}
                 hideAllMenus={props.hideAllMenus}
                 setHideAllMenus={props.setHideAllMenus}
+                tradeView={props.tradeView}
             />
         </div>
     )

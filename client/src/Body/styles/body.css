@@ -11,6 +11,10 @@
     color: #25c99e;
 }
 
+.trade-view-button {
+    cursor: pointer;
+}
+
 /* Monthly Component */
 
 .monthly-container {
