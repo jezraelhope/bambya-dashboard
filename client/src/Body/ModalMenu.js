@@ -39,21 +39,24 @@ const Modal = (props) => {
     }
 
     //deleting trade
-
     const handleDelete = async () => {
         if (window.confirm('Are you sure you want to delete?')) {
-            const deleteResult = await fetch(`/trades/${props.tradeId}`, {
-                method: 'DELETE',
-                headers: {
-                    'content-type': 'application/json',
-                },
-                body: JSON.stringify(),
-            })
-            console.log('deleted!', deleteResult)
-            toggleModal()
-            props.setRefetch(true)
+            try {
+                const deleteResult = await fetch(`/trades/${props.tradeId}`, {
+                    method: 'DELETE',
+                    headers: {
+                        'content-type': 'application/json',
+                    },
+                    body: JSON.stringify({}),
+                })
+                console.log('deleted!', deleteResult)
+                toggleModal()
+                props.setRefetch(true)
+            } catch (error) {
+                console.log(error)
+            }
         } else {
-            console.log('cancel')
+            console.log('deletion cancelled')
         }
     }
 
