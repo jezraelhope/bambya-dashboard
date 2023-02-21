@@ -14,7 +14,7 @@ const Body = (props) => {
                 : 'Please choose the month from the left side menu to filter'}
             {monthToShow.map((month) => {
                 return (
-                    <main className="monthly-container" key={month}>
+                    <div className="monthly-container" key={month}>
                         <h2 className="month-name">{month}</h2>
                         <MonthlyComponent
                             month={month}
@@ -31,7 +31,7 @@ const Body = (props) => {
                             setTradeData={props.setTradeData}
                             setRefetch={props.setRefetch}
                         />
-                    </main>
+                    </div>
                 )
             })}
         </main>
