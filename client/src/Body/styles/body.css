@@ -15,6 +15,10 @@
     cursor: pointer;
 }
 
+.trade-view-button:focus {
+    background-color: #25c99e;
+}
+
 /* Monthly Component */
 
 .monthly-container {
