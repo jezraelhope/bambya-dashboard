@@ -21,12 +21,12 @@ const TradeComponent = (props) => {
     })
 
     useEffect(() => {
-        setOpenTrades(openTrades)
-    }, [])
+        setOpenTrades((prev) => [...prev, ...openTrades])
+    }, [tradeView, setOpenTrades])
 
     useEffect(() => {
-        setClosedTrades(closedTrades)
-    }, [])
+        setClosedTrades((prev) => [...prev, ...closedTrades])
+    }, [tradeView, setClosedTrades])
 
     if (tradeView === 'closed') {
         return (
@@ -39,7 +39,6 @@ const TradeComponent = (props) => {
                             <th className="table-heading">Long Strike</th>
                             <th className="table-heading">Short Strike</th>
                             <th className="table-heading">No. of Contracts</th>
-                            <th className="table-heading">Open Price</th>
                             <th className="table-heading">Close Price</th>
                             <th className="table-heading">Current Price</th>
                             <th className="profit-header table-heading">
@@ -58,7 +57,6 @@ const TradeComponent = (props) => {
                                     <td>{trade.longStrike}</td>
                                     <td>{trade.shortStrike}</td>
                                     <td>{trade.contractsNumber}</td>
-                                    <td>{trade.openPrice}</td>
                                     <td>{trade.closingData.closePrice}</td>
                                     <td>data to be fetched</td>
                                     <td>
@@ -108,11 +106,7 @@ const TradeComponent = (props) => {
                             <th className="table-heading">Short Strike</th>
                             <th className="table-heading">No. of Contracts</th>
                             <th className="table-heading">Open Price</th>
-                            <th className="table-heading">Close Price</th>
                             <th className="table-heading">Current Price</th>
-                            <th className="profit-header table-heading">
-                                Profit
-                            </th>
                             <th className="comment-header table-heading">
                                 Comments
                             </th>
@@ -127,13 +121,7 @@ const TradeComponent = (props) => {
                                     <td>{trade.shortStrike}</td>
                                     <td>{trade.contractsNumber}</td>
                                     <td>{trade.openPrice}</td>
-                                    <td>{trade.closingData.closePrice}</td>
                                     <td>data to be fetched</td>
-                                    <td>
-                                        {trade.closingData.profit
-                                            ? trade.closingData.profit
-                                            : 'Not Available'}
-                                    </td>
                                     <td>{trade.comments}</td>
                                     <td>
                                         <ModalMenu

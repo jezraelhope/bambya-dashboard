@@ -1,12 +1,33 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import TradeComponent from './TradeComponent'
 
 const ExpiryComponent = (props) => {
     const data = props.data[props.year]
-    const expiry = Object.keys(data[props.month] || {})
+    // const expiry = Object.keys(data[props.month] || {})
     const tradeView = props.tradeView
     const [closedTrades, setClosedTrades] = useState([])
     const [openTrades, setOpenTrades] = useState([])
+
+    const closedExpiry = closedTrades.map((trade) => {
+        return new Date(trade.date).getDate() + 1
+    })
+    const openExpiry = openTrades.map((trade) => {
+        return new Date(trade.date).getDate() + 1
+    })
+
+    const [expiry, setExpiry] = useState([])
+
+    useEffect(() => {
+        if (tradeView === 'closed') {
+            setExpiry([...new Set(closedExpiry)])
+            setClosedTrades([])
+        } else if (tradeView === 'open') {
+            setExpiry([...new Set(openExpiry)])
+            setOpenTrades([])
+        } else {
+            setExpiry(Object.keys(data[props.month] || {}))
+        }
+    }, [tradeView, data, props.month])
 
     return expiry.map((date) => {
         return (
