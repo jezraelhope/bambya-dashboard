@@ -3,7 +3,6 @@ import TradeComponent from './TradeComponent'
 
 const ExpiryComponent = (props) => {
     const data = props.data[props.year]
-    // const expiry = Object.keys(data[props.month] || {})
     const tradeView = props.tradeView
     const [closedTrades, setClosedTrades] = useState([])
     const [openTrades, setOpenTrades] = useState([])
