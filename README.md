@@ -1,4 +1,4 @@
-# Wheel Strategy Dashboard
+# Trading Journal
 
 [Click to view live](https://wheel-strategy-dashboard.onrender.com/)
 
