@@ -11,7 +11,7 @@ const Header = (props) => {
     const setMonthToShow = props.setMonthToShow
     const [toggleMenu, setToggleMenu] = useState('hide')
     const [toggleAddTrade, setToggleAddTrade] = useState('hide')
-
+    const user = props.user
     return (
         <header className="header-container">
             <Hamburger
@@ -31,7 +31,7 @@ const Header = (props) => {
                 hideAllMenus={props?.hideAllMenus}
                 setHideAllMenus={props?.setHideAllMenus}
             />
-            <Title />
+            <Title name={user.name} />
             <AddTrade
                 setHideAllMenus={props?.setHideAllMenus}
                 toggleAddTrade={toggleAddTrade}

@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import './styles/header.css'
 
+import Logout from '../Main/Logout'
 import SideMenuMonths from './SideMenuMonths'
 
 import cancel from '../assets/cancel.svg'
@@ -78,6 +79,7 @@ const Menu = (props) => {
                     setMonthToShow={setMonthToShow}
                 />
             </section>
+            <Logout />
         </div>
     )
 }
