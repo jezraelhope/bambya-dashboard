@@ -71,6 +71,7 @@ function App() {
         )
     }
     const { isLoading, isAuthenticated, error, user } = useAuth0()
+    console.log(user)
 
     if (isLoading) {
         return (
