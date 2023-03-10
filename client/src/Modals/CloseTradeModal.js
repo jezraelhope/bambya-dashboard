@@ -1,26 +1,24 @@
-import React, {useRef} from "react";
-import cancel from "../assets/cancel.svg";
+import React, { useRef } from 'react'
+import cancel from '../assets/cancel.svg'
 
-import "./styles/modals.css"
+import './styles/modals.css'
 
 const CloseTradeModal = (props) => {
-
-    const setModalVisibility = props.setModalVisibility;
-    const setCloseTradeFormVisibility = props.setCloseTradeFormVisibility;
+    const setModalVisibility = props.setModalVisibility
+    const setCloseTradeFormVisibility = props.setCloseTradeFormVisibility
     const tradeData = props.tradeData
 
-    const closePrice = useRef(0);
-    const closeComments = useRef("");
-    const closeDate = useRef(new Date().toJSON().slice(0,10))
+    const closePrice = useRef(0)
+    const closeComments = useRef('')
+    const closeDate = useRef(new Date().toJSON().slice(0, 10))
 
     const hideMainModal = () => {
-        setCloseTradeFormVisibility("hide-close-trade-form");
-        setModalVisibility("hide-main-modal")
+        setCloseTradeFormVisibility('hide-close-trade-form')
+        setModalVisibility('hide-main-modal')
     }
 
     const handleSubmit = async (e) => {
-
-        e.preventDefault();
+        e.preventDefault()
 
         const closeTradeData = {
             expiryDate: tradeData.expiryDate,
@@ -35,30 +33,28 @@ const CloseTradeModal = (props) => {
                 closeDate: closeDate.current.value,
                 closePrice: closePrice.current.value,
                 closeComments: closeComments.current.value,
-                profit: closePrice.current.value - tradeData.openPrice
-            }
-            
+                profit: closePrice.current.value - tradeData.openPrice,
+            },
         }
 
         try {
             fetch(`/close/${tradeData.id}`, {
-                method: "PUT",
-                headers: { "Content-Type": "application/json"},
-                body: JSON.stringify(closeTradeData)
+                method: 'PUT',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(closeTradeData),
             }).then(() => {
-                console.log("trade closed!", closeTradeData)
-            });
-
+                console.log('trade closed!', closeTradeData)
+            })
         } catch (err) {
             console.log(err)
         }
 
-        props.setRefetch(true);
-        e.target.reset();
-        hideMainModal();
+        props.setRefetch(true)
+        e.target.reset()
+        hideMainModal()
     }
-    
-    return(
+
+    return (
         <section className={props.closeTradeFormVisibility}>
             <div className="modal-button-container">
                 <button className="close-modal-button" onClick={hideMainModal}>
@@ -70,26 +66,21 @@ const CloseTradeModal = (props) => {
                 <form onSubmit={handleSubmit}>
                     <div className="form-group">
                         <label htmlFor="closingDate">Closing Date</label>
-                        <input
-                            type="date"
-                            ref={closeDate}
-                        />
+                        <input type="date" ref={closeDate} />
                     </div>
                     <div className="form-group">
                         <label htmlFor="closingPrice">Closing Price</label>
-                        <input 
-                            type="number"
-                            ref={closePrice}
-                        />
+                        <input type="number" ref={closePrice} step="any" />
                     </div>
                     <div className="form-group">
-                        <label htmlFor="closingComments">Closing Comments</label>
-                        <input
-                            type="text"
-                            ref={closeComments}
-                        />
+                        <label htmlFor="closingComments">
+                            Closing Comments
+                        </label>
+                        <input type="text" ref={closeComments} />
                     </div>
-                    <button type="submit" className="form-button">Close Trade</button>
+                    <button type="submit" className="form-button">
+                        Close Trade
+                    </button>
                 </form>
             </div>
         </section>
