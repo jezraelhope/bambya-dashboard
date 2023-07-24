@@ -10,7 +10,7 @@ import Login from './Main/Login'
 import Logout from './Main/Logout'
 import Loading from './assets/loading.svg'
 import './App.css'
-import { useAuth0 } from '@auth0/auth0-react'
+// import { useAuth0 } from '@auth0/auth0-react'
 
 function App() {
     const [monthToShow, setMonthToShow] = useState([])
@@ -70,84 +70,82 @@ function App() {
                 : 'hide-edit-trade-form'
         )
     }
-    const { isLoading, isAuthenticated, error, user } = useAuth0()
-    console.log(user)
+    // const { isLoading, isAuthenticated, error, user } = useAuth0()
+    // console.log(user)
 
-    if (isLoading) {
-        return (
-            <div className="App purple-theme loading">
-                <img src={Loading} alt="loading" className="loading-image" />
-            </div>
-        )
-    }
+    // if (isLoading) {
+    //     return (
+    //         <div className="App purple-theme loading">
+    //             <img src={Loading} alt="loading" className="loading-image" />
+    //         </div>
+    //     )
+    // }
 
     return (
         <div className="App purple-theme" onClick={() => handleAllMenus()}>
-            {!isAuthenticated ? (
+            {/* {!isAuthenticated ? (
                 <div className="login-page">
                     <h1>You are not authorized. Please login</h1>
                     <Login />
                 </div>
-            ) : (
-                <div>
-                    <div className={modalVisibility}>
-                        <EditTradeModal
-                            tradeData={tradeData}
-                            setTradeData={setTradeData}
-                            modalVisibility={modalVisibility}
-                            setModalVisibility={setModalVisibility}
-                            toggleMainModal={toggleMainModal}
-                            editFormVisibility={editFormVisibility}
-                            setEditFormVisibility={setEditFormVisibility}
-                            setRefetch={setRefetch}
-                        />
-                        <CloseTradeModal
-                            tradeData={tradeData}
-                            setTradeData={setTradeData}
-                            modalVisibility={modalVisibility}
-                            setModalVisibility={setModalVisibility}
-                            toggleMainModal={toggleMainModal}
-                            closeTradeFormVisibility={closeTradeFormVisibility}
-                            setCloseTradeFormVisibility={
-                                setCloseTradeFormVisibility
-                            }
-                            setRefetch={setRefetch}
-                        />
-                    </div>
-                    <Header
-                        data={data}
-                        monthToShow={monthToShow}
-                        setMonthToShow={setMonthToShow}
-                        setYearSelected={setYearSelected}
-                        yearSelected={yearSelected}
-                        years={years}
-                        hideAllMenus={hideAllMenus}
-                        setHideAllMenus={setHideAllMenus}
-                        fetchedData={fetchData}
-                        refetch={refetch}
-                        setRefetch={setRefetch}
-                        user={user}
-                    />
-                    <Body
-                        // handleDelete={handleDelete}
-                        yearSelected={yearSelected}
-                        monthToShow={monthToShow}
-                        hideAllMenus={hideAllMenus}
-                        setHideAllMenus={setHideAllMenus}
-                        data={data}
-                        years={years}
+            ) : ( */}
+            <div>
+                <div className={modalVisibility}>
+                    <EditTradeModal
+                        tradeData={tradeData}
+                        setTradeData={setTradeData}
+                        modalVisibility={modalVisibility}
                         setModalVisibility={setModalVisibility}
+                        toggleMainModal={toggleMainModal}
+                        editFormVisibility={editFormVisibility}
                         setEditFormVisibility={setEditFormVisibility}
+                        setRefetch={setRefetch}
+                    />
+                    <CloseTradeModal
+                        tradeData={tradeData}
+                        setTradeData={setTradeData}
+                        modalVisibility={modalVisibility}
+                        setModalVisibility={setModalVisibility}
+                        toggleMainModal={toggleMainModal}
+                        closeTradeFormVisibility={closeTradeFormVisibility}
                         setCloseTradeFormVisibility={
                             setCloseTradeFormVisibility
                         }
-                        setTradeData={setTradeData}
                         setRefetch={setRefetch}
                     />
-                    <Background />
-                    <Footer />
                 </div>
-            )}
+                <Header
+                    data={data}
+                    monthToShow={monthToShow}
+                    setMonthToShow={setMonthToShow}
+                    setYearSelected={setYearSelected}
+                    yearSelected={yearSelected}
+                    years={years}
+                    hideAllMenus={hideAllMenus}
+                    setHideAllMenus={setHideAllMenus}
+                    fetchedData={fetchData}
+                    refetch={refetch}
+                    setRefetch={setRefetch}
+                    // user={user}
+                />
+                <Body
+                    // handleDelete={handleDelete}
+                    yearSelected={yearSelected}
+                    monthToShow={monthToShow}
+                    hideAllMenus={hideAllMenus}
+                    setHideAllMenus={setHideAllMenus}
+                    data={data}
+                    years={years}
+                    setModalVisibility={setModalVisibility}
+                    setEditFormVisibility={setEditFormVisibility}
+                    setCloseTradeFormVisibility={setCloseTradeFormVisibility}
+                    setTradeData={setTradeData}
+                    setRefetch={setRefetch}
+                />
+                <Background />
+                <Footer />
+            </div>
+            {/* )} */}
         </div>
     )
 }

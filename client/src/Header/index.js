@@ -31,7 +31,9 @@ const Header = (props) => {
                 hideAllMenus={props?.hideAllMenus}
                 setHideAllMenus={props?.setHideAllMenus}
             />
-            <Title name={user.given_name} />
+            <Title
+            // name={user.given_name}
+            />
             <AddTrade
                 setHideAllMenus={props?.setHideAllMenus}
                 toggleAddTrade={toggleAddTrade}
