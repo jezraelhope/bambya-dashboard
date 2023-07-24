@@ -79,7 +79,7 @@ const Menu = (props) => {
                     setMonthToShow={setMonthToShow}
                 />
             </section>
-            <Logout />
+            {/* <Logout /> */}
         </div>
     )
 }
